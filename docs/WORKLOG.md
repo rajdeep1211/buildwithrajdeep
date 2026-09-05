@@ -6,29 +6,28 @@
 ## Current State
 
 ### Current Phase
-**Phase 2 — Core Portfolio (Homepage)**
+**Phase 2 — Core Portfolio (Education & Certifications)**
 
 ### Status
 **In Progress**
 
 ### Currently Working On
-- Iterating on homepage design and preparing subsequent sections/pages (Education, Experience, Projects, Contact Me).
+- Preparing Projects section implementation.
 
 ### Completed
 - `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
 - Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
-- Implemented responsive Homepage (`/`) featuring:
-  - Fixed header navigation with personal branding.
-  - Spacious hero section with commanding typography, subtitle handle `( buildwithrajdeep )`, and personal statement.
-  - Unboxed developer workspace illustration matching target spacing.
-  - Prominent circular social badges and "Star Me On GitHub" action.
-  - Core capabilities grid (AI Systems, Software Engineering, Full-Stack Development, AI/ML Engineering, Product Building, Community).
-  - Floating scroll-to-top button.
-- Verified build passes cleanly with zero errors.
+- Implemented responsive Homepage (`/`) with header, hero, illustration, social badges, and capabilities.
+- Implemented Education page (`/education`) with:
+  - Interactive vertical timeline featuring 3 academic entries with hover/focus state details.
+  - Certifications section featuring 3 horizontal credential cards in dark Brownie cards with Caramel seals.
+  - Strictly adheres to the PRD palette (Cream, Caramel, Brownie, Coffee).
+  - High performance, lag-free transitions (removed heavy blur filters).
+- Verified builds and clean local dev server compilation.
 
 ### Next
-- Alter/refine font animations and typography styling.
-- Implement dedicated Education, Experience, Projects, and Contact Me pages.
+- Implement Projects section / case studies.
+- Implement Experience and Contact Me sections.
 
 ### Blocked By
 None.
@@ -189,6 +188,19 @@ current code + git state
 - Replaced narrow centered layout with wide expansive grid (`max-w-[1400px]`) to match reference spacing.
 - Scoped homepage strictly to Header, Hero, Social, and Capabilities, deferring Education/Experience/Projects/Contact to dedicated routes.
 - Typography and font animations will be iterated upon in subsequent passes.
+
+---
+
+## 2026-09-05 — Education & Certifications Implementation
+
+### Completed
+- Implemented `/education` route with:
+  - Vertical timeline with 3 academic milestones (B.Tech in CSE, Class XII Science, Class X).
+  - Hover/focus interaction expanding to show concentration, key modules, and engagements.
+  - Certifications section with 3 horizontal cards (Deep Learning, Machine Learning, Cloud & Full-Stack Systems) featuring verifiable credential seals and external links.
+- Fixed performance lag by replacing expensive CSS blur filters with GPU-accelerated opacity transitions.
+- Restored strictly the PRD color palette (Cream `#F3E9DC`, Caramel `#C08552`, Brownie `#5E3023`, Coffee `#895737`).
+- Verified build passes with zero errors (`next build` generates 5 static pages).
 
 ---
 
