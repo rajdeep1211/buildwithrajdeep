@@ -6,28 +6,30 @@
 ## Current State
 
 ### Current Phase
-**Phase 2 — Core Portfolio (Education & Certifications)**
+**Phase 2 — Core Portfolio (Projects Page)**
 
 ### Status
 **In Progress**
 
 ### Currently Working On
-- Preparing Projects section implementation.
+- Preparing Experience or Contact section implementation.
 
 ### Completed
 - `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
 - Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
 - Implemented responsive Homepage (`/`) with header, hero, illustration, social badges, and capabilities.
-- Implemented Education page (`/education`) with:
-  - Interactive vertical timeline featuring 3 academic entries with hover/focus state details.
-  - Certifications section featuring 3 horizontal credential cards in dark Brownie cards with Caramel seals.
-  - Strictly adheres to the PRD palette (Cream, Caramel, Brownie, Coffee).
-  - High performance, lag-free transitions (removed heavy blur filters).
-- Verified builds and clean local dev server compilation.
+- Implemented Education page (`/education`) with vertical interactive timeline and certifications cards.
+- Implemented Projects page (`/projects`) featuring:
+  - Dark rounded project cards (`bg-[#1a1412]`) matching reference design.
+  - Tapping card directly redirects to live demo (`https://collaborative-canvas-36g9.onrender.com/`).
+  - Integrated real DrawTogether UI screenshot asset (`/projects/drawtogether.png`).
+  - Separate GitHub icon button opening repository directly without triggering card demo link.
+  - "More Projects" section pointing to GitHub.
+- Verified build and responsive layout.
 
 ### Next
-- Implement Projects section / case studies.
-- Implement Experience and Contact Me sections.
+- Implement Experience section.
+- Implement Contact Me section.
 
 ### Blocked By
 None.
@@ -201,6 +203,18 @@ current code + git state
 - Fixed performance lag by replacing expensive CSS blur filters with GPU-accelerated opacity transitions.
 - Restored strictly the PRD color palette (Cream `#F3E9DC`, Caramel `#C08552`, Brownie `#5E3023`, Coffee `#895737`).
 - Verified build passes with zero errors (`next build` generates 5 static pages).
+
+---
+
+## 2026-09-05 — Projects Page Implementation
+
+### Completed
+- Implemented `/projects` route matching the dark-card reference design:
+  - Upper visual mockup/preview frame.
+  - Category label, project title, tech stack pills, and GitHub repository button.
+  - Tapping card opens the live demo directly; clicking the GitHub icon opens repository in a new tab without triggering card live demo.
+  - Wired real live demo URL (`https://collaborative-canvas-36g9.onrender.com/`) and asset screenshot for DrawTogether (`/projects/drawtogether.png`).
+- Verified production build and responsive layout.
 
 ---
 
