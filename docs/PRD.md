@@ -531,11 +531,11 @@ The home page should communicate:
 - Professional identity
 - Personal introduction
 - Core capabilities
-- Technical ecosystem
+<!-- - Technical ecosystem
 - Important work
 - Clear navigation
 - External profile links
-- Contact / call to action
+- Contact / call to action -->
 
 ## 12.2 Capability Areas
 

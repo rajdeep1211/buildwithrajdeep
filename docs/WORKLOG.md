@@ -6,26 +6,29 @@
 ## Current State
 
 ### Current Phase
-**Phase 0 — Foundation**
+**Phase 2 — Core Portfolio (Homepage)**
 
 ### Status
 **In Progress**
 
 ### Currently Working On
-- Establishing the project's documentation and external-memory system.
+- Iterating on homepage design and preparing subsequent sections/pages (Education, Experience, Projects, Contact Me).
 
 ### Completed
-- `PRD.md` established.
-- `ARCHITECTURE.md` established.
-- `RULES.md` established.
-- Phase structure agreed upon.
-- GitHub selected as the project's external memory/source of truth.
-- `WORKLOG.md` defined as the place for current state and meaningful project history.
+- `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
+- Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
+- Implemented responsive Homepage (`/`) featuring:
+  - Fixed header navigation with personal branding.
+  - Spacious hero section with commanding typography, subtitle handle `( buildwithrajdeep )`, and personal statement.
+  - Unboxed developer workspace illustration matching target spacing.
+  - Prominent circular social badges and "Star Me On GitHub" action.
+  - Core capabilities grid (AI Systems, Software Engineering, Full-Stack Development, AI/ML Engineering, Product Building, Community).
+  - Floating scroll-to-top button.
+- Verified build passes cleanly with zero errors.
 
 ### Next
-- Finalize `PHASES.md`.
-- Create and discuss `DESIGN.md`.
-- Begin implementation after the foundation is sufficiently defined.
+- Alter/refine font animations and typography styling.
+- Implement dedicated Education, Experience, Projects, and Contact Me pages.
 
 ### Blocked By
 None.
@@ -165,6 +168,27 @@ current code + git state
 - Verify that the project-management documents are aligned.
 - Commit the documentation changes.
 - Begin implementation after the foundation is sufficiently defined.
+
+---
+
+## 2026-09-05 — Minimal Homepage Implementation
+
+### Completed
+- Initialized Next.js, React, TypeScript, and Tailwind CSS toolchain with zero unnecessary dependencies.
+- Configured theme tokens with Cream (`#F3E9DC`), Caramel (`#C08552`), Brownie (`#5E3023`), and Coffee (`#895737`).
+- Implemented homepage (`/`) featuring:
+  - Sticky header navigation with personal branding.
+  - Hero section with large typography, handle `( buildwithrajdeep )`, builder statement, and "Star Me On GitHub" CTA.
+  - Bespoke developer workspace & AI system vector illustration.
+  - Recognized circular social badges (GitHub, LinkedIn, YouTube, Email, X, Discord, Instagram).
+  - 6 Core capabilities cards (*AI Systems*, *Software Engineering*, *Full-Stack Development*, *AI / ML Engineering*, *Product Building*, *Community & Collaboration*).
+  - Floating scroll-to-top button.
+- Verified build and responsive layout.
+
+### Decisions
+- Replaced narrow centered layout with wide expansive grid (`max-w-[1400px]`) to match reference spacing.
+- Scoped homepage strictly to Header, Hero, Social, and Capabilities, deferring Education/Experience/Projects/Contact to dedicated routes.
+- Typography and font animations will be iterated upon in subsequent passes.
 
 ---
 
