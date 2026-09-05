@@ -6,30 +6,28 @@
 ## Current State
 
 ### Current Phase
-**Phase 2 — Core Portfolio (Projects Page)**
+**Phase 2 — Core Portfolio (Contact Me Page Completed)**
 
 ### Status
 **In Progress**
 
 ### Currently Working On
-- Preparing Experience or Contact section implementation.
+- Preparing Experience section implementation (`/experience`).
 
 ### Completed
 - `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
 - Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
-- Implemented responsive Homepage (`/`) with header, hero, illustration, social badges, and capabilities.
-- Implemented Education page (`/education`) with vertical interactive timeline and certifications cards.
-- Implemented Projects page (`/projects`) featuring:
-  - Dark rounded project cards (`bg-[#1a1412]`) matching reference design.
-  - Tapping card directly redirects to live demo (`https://collaborative-canvas-36g9.onrender.com/`).
-  - Integrated real DrawTogether UI screenshot asset (`/projects/drawtogether.png`).
-  - Separate GitHub icon button opening repository directly without triggering card demo link.
-  - "More Projects" section pointing to GitHub.
-- Verified build and responsive layout.
+- Implemented Contact Me page (`/contact`) with Cream, Caramel, Brownie, and Coffee documentation palette.
+- Redesigned Homepage (`/`) with an editorial Developer Terminal Workspace hero and Core Capabilities continuation:
+  - Header: `Rajdeep Bakliwal_` with animated cursor and middle-dot navigation (`Home · Education · Experience · Projects · Contact Me`).
+  - Terminal hero window: Brownie/Coffee chrome with macOS window controls, title `buildwithrajdeep@portfolio: ~`, and tagline `Ideas. Code. People. Impact.`
+  - Left terminal content: `whoami`, `cat about.txt`, interactive directory listing (`/education`, `/experience`, `/projects`, `/contact`) with folder icons, live status section, and blinking prompt.
+  - Right information panel: `// LOCATION` (India 🇮🇳), `// FOCUS`, refined quote, and abstract warm landscape silhouette.
+  - Continuation into scroll: exact Core Capabilities grid matching the design reference, plus floating scroll-to-top button.
+- Verified build and zero-lag responsive layout.
 
 ### Next
-- Implement Experience section.
-- Implement Contact Me section.
+- Implement Experience section (`/experience`).
 
 ### Blocked By
 None.
@@ -215,6 +213,82 @@ current code + git state
   - Tapping card opens the live demo directly; clicking the GitHub icon opens repository in a new tab without triggering card live demo.
   - Wired real live demo URL (`https://collaborative-canvas-36g9.onrender.com/`) and asset screenshot for DrawTogether (`/projects/drawtogether.png`).
 - Verified production build and responsive layout.
+
+---
+
+## 2026-09-05 — Contact Me Page Redesign (PRD Documentation Palette)
+
+### Completed
+- Remade `/contact` route aligning with the PRD and Design system documentation:
+  - Base palette: Cream (`#F3E9DC`) page background, Caramel (`#C08552`) interactive accents & badges, Brownie (`#5E3023`) headings & primary buttons, and Coffee (`#895737`) secondary text and subtle borders.
+  - Hero header: `GET IN TOUCH` uppercase badge and `Let's Build Something Together.` headline.
+  - 2-Column desktop grid:
+    - Left column: "Open to conversations" live status badge with pulsing caramel dot, personal welcoming note, direct email (`rajdeepbakliwal@gmail.com`) with 1-click clipboard copy and mailto action, and 6 clean platform connection links (GitHub, LinkedIn, YouTube, Instagram, X/Twitter, Discord) with caramel hover states and arrows.
+    - Right column: Clean, minimal contact form (Name, Email, Subject, Message) with cream input surfaces, accessible validation indicators, and Brownie/Caramel primary button (`Send Message →`).
+    - Submission success state: Transitions seamlessly to a confirmation card ("Message Sent ✓", "Thanks for reaching out", "Back to Home", "Send Another Message").
+  - Minimal engineering footer: "Rajdeep Bakliwal — Building software, AI systems, and ideas."
+  - Omitted clutter: no maps, no office addresses, no phone numbers, no FAQ, no newsletters.
+- Verified build (`next build` succeeds with 7 static routes) and zero-lag interactions.
+
+---
+
+## 2026-09-05 — Homepage Developer Terminal Workspace Redesign
+
+### Completed
+- Replaced the hero section on `/` with a sophisticated, editorial-style developer terminal workspace:
+  - Terminal styling: Caramel outer frame/shell (`#C08552`), Brownie title bar chrome (`#5E3023`), Coffee interior workspace background (`#895737`), and rich combinations of Cream (`#F3E9DC`) and Caramel (`#C08552`) for all typography and commands.
+  - Background: Page background remains clean Cream (`#F3E9DC`) throughout the entire page including the hero section.
+  - Left terminal content:
+    - `whoami` &rarr; prominent `Rajdeep Bakliwal` in Cream serif + `Software Engineer building AI systems.` in Caramel.
+    - `cat about.txt` &rarr; quote container with Cream statement.
+    - `ls` &rarr; four interactive directory cards (`/education`, `/experience`, `/projects`, `/contact`) with folder icons and Caramel accents.
+    - `status` &rarr; live indicators with Caramel highlights (`● Building`, `● Learning`, `● Collaborating`, `● Open to`) and Cream descriptions.
+    - Blinking terminal cursor.
+  - Right information panel:
+    - `// LOCATION` &rarr; India 🇮🇳 in Cream.
+    - `// FOCUS` &rarr; Software Engineering, AI Systems, Communities & Impact in Cream.
+    - Quote &rarr; *"Building a better tomorrow, one line of code at a time."* in Cream italic &mdash; Rajdeep Bakliwal in Caramel.
+    - Subtle abstract mountain/landscape silhouette with layered Cream and Caramel ridges against the Coffee background.
+  - Scroll continuation: Seamless transition into the **Core Capabilities** 6-card grid and floating scroll-to-top button matching the user's reference image.
+- Strictly enforced documentation color palette (Cream `#F3E9DC`, Caramel `#C08552`, Brownie `#5E3023`, Coffee `#895737`).
+- Verified build passes with zero errors.
+
+---
+
+## 2026-09-05 — Pixel-Accurate Terminal Matching Reference Image
+
+### Completed
+- Aligned homepage (`/`) navigation and developer terminal window pixel-by-pixel with user-provided reference screenshot (`media_1788623908587.png`):
+  - **Navigation Bar**:
+    - Clean horizontal spacing without separator dots (`Home`, `Education`, `Experience`, `Projects`, `Contact Me`).
+    - Active `Home` indicator with a centered solid Caramel pill underline.
+    - Preserved `Rajdeep Bakliwal_` with animated Caramel cursor.
+  - **Terminal Window**:
+    - Rounded 24px container with thin `#D5C2B1` warm border and soft drop shadow on Cream page background.
+    - Dark Brownie (`#5E3023`) top bar chrome with red, amber, and green window dots, monospace title `buildwithrajdeep@portfolio: ~`, tagline `Ideas. Code. People. Impact.`, and corner-bracket expand icon.
+    - Interior light warm surface (`#F4EDE4`) with subtle vertical divider dividing main terminal (8 cols) and right info panel (4 cols).
+  - **Left Terminal Workspace**:
+    - `whoami` &rarr; Bold technical monospace `Rajdeep Bakliwal` heading in Brownie with `Software Engineer building AI systems.` subtitle.
+    - `cat about.txt` &rarr; Clean unboxed monospace paragraph in Brownie.
+    - `ls` &rarr; Horizontal row of folders (`education/`, `experience/`, `projects/`, `contact/`) with solid coffee folder icons and clickable links.
+    - `status` &rarr; Precisely aligned 3-column table with coffee bullets `●`, coffee keywords (`Building`, `Learning`, `Collaborating`, `Open to`), and brownie values (`AI-powered products`, `New technologies`, `With amazing people`, `Opportunities`).
+    - Active prompt `rajdeep@buildwithrajdeep:~$` with solid animated block cursor `█`.
+  - **Right Information Panel**:
+    - `// LOCATION` with solid map pin and `India 🇮🇳`.
+    - `// FOCUS` with `</>`, isometric cube, and community icons for Software Engineering, AI Systems, Communities & Impact.
+    - Thin divider line and large quotation mark with italic quote: *"Building a better tomorrow, one line of code at a time."* &mdash; Rajdeep Bakliwal.
+    - Integrated multi-ridge mountain landscape and soft sun disc SVG in the bottom right quadrant.
+  - **Continuation on Scroll**:
+    - Seamless flow into the Core Capabilities 6-card grid and floating scroll-to-top button.
+- Validated with `pnpm build` (exit code 0 across all 7 static pages).
+- Next.js dev server live on `http://localhost:3001/`.
+- Adjusted terminal window scale and max-width (`max-w-[1360px]`, `min-h-[560px]`, expanded padding) to give the terminal more visual presence and breathing room while keeping the exact design proportions intact.
+- Updated terminal window boundary to matching Brownie (`border-2 border-brownie`, `#5E3023`).
+- Enhanced terminal window with 3D physical depth:
+  - Extruded bottom-right physical shadow (`8px 10px 0px 0px #472319`) combined with soft ambient occlusion (`0 25px 40px rgba(94,48,35,0.22)`).
+  - Chamfered top light reflection on the Brownie header bar (`inset 0 1px 0 rgba(255,255,255,0.18)`).
+  - Subtle recessed inner screen shadow (`inset 0 3px 12px rgba(94,48,35,0.06)`).
+  - Interactive 3D lift on hover (`-translate-y-1` and expanded shadow).
 
 ---
 
