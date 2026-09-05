@@ -19,12 +19,13 @@
 - Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
 - Implemented Contact Me page (`/contact`) with Cream, Caramel, Brownie, and Coffee documentation palette.
 - Redesigned Homepage (`/`) with an editorial Developer Terminal Workspace hero and Core Capabilities continuation:
-  - Header: `Rajdeep Bakliwal_` with animated cursor and middle-dot navigation (`Home · Education · Experience · Projects · Contact Me`).
-  - Terminal hero window: Brownie/Coffee chrome with macOS window controls, title `buildwithrajdeep@portfolio: ~`, and tagline `Ideas. Code. People. Impact.`
-  - Left terminal content: `whoami`, `cat about.txt`, interactive directory listing (`/education`, `/experience`, `/projects`, `/contact`) with folder icons, live status section, and blinking prompt.
-  - Right information panel: `// LOCATION` (India 🇮🇳), `// FOCUS`, refined quote, and abstract warm landscape silhouette.
-  - Continuation into scroll: exact Core Capabilities grid matching the design reference, plus floating scroll-to-top button.
-- Verified build and zero-lag responsive layout.
+  - Header: `Rajdeep Bakliwal_` with animated cursor, seamless cream navigation with clean link spacing, and active Caramel underline on `Home`.
+  - 3D Developer Terminal Window: 1360px container with matching Brownie boundary (`border-2 border-brownie`), extruded 3D physical shadow (`8px 10px 0px 0px #472319`), top chamfer highlight, recessed inner screen shadow, and hover lift.
+  - Terminal Chrome: Dark Brownie header with macOS window dots, monospace title `buildwithrajdeep@portfolio: ~`, tagline `Ideas. Code. People. Impact.`, and corner-bracket expand icon.
+  - Left Workspace Panel: `whoami` (bold technical heading), `cat about.txt` (clean monospace text), `ls` (horizontal folder directory links), aligned 3-column `status` table, and blinking block cursor.
+  - Right Information Panel: `// LOCATION` (`India 🇮🇳`), `// FOCUS` (icons & categories), quote section with attribution, and integrated warm multi-ridge mountain landscape & sun silhouette.
+  - Continuation on scroll: Core Capabilities 6-card grid and floating circular scroll-to-top button.
+- Verified production build (`pnpm build`) and zero-lag responsive layout across desktop and mobile.
 
 ### Next
 - Implement Experience section (`/experience`).
