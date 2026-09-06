@@ -10,7 +10,7 @@ interface EducationItem {
   location: string;
   specialization: string;
   summary: string;
-  coursework: string[];
+  coursework?: string[];
   achievements: string[];
 }
 
@@ -39,40 +39,31 @@ export default function EducationPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Exactly 3 Education Entries
   const educationHistory: EducationItem[] = [
     {
       id: 1,
-      period: "2021 — 2025",
-      degree: "Bachelor of Technology in Computer Science & Engineering",
-      institution: "Institute of Engineering & Technology",
-      location: "India",
-      specialization: "Artificial Intelligence, Machine Learning & Systems Architecture",
+      period: "2022 — 2025",
+      degree: "Bachelor of Technology in Computer and Communication Engineering",
+      institution: "Manipal University Jaipur",
+      location: "Jaipur, India",
+      specialization: "Artificial Intelligence, Machine Learning, Computer Networks & Systems Architecture",
       summary:
-        "Comprehensive undergraduate program focusing on advanced algorithms, deep neural network architectures, distributed computing, and full-stack software development.",
-      coursework: [
-        "Machine Learning & Deep Learning",
-        "Data Structures & Algorithms",
-        "Distributed Systems & Cloud Computing",
-        "Database Management Systems",
-        "Object-Oriented Software Architecture",
-        "Computer Networks & Security",
-      ],
+        "Undergraduate program focused on software engineering, artificial intelligence, machine learning, computer networks, and systems architecture, with hands-on experience building technical projects and participating in collaborative engineering initiatives.",
       achievements: [
-        "Led university technical teams in building automated student AI tools.",
-        "Consistently recognized on the Dean's Academic Merit list for excellence in core computer science modules.",
-        "Organized campus technical workshops and collaborative hackathons.",
+        "Led IEEE AESS campus events as Event Head, coordinating planning and execution.",
+        "Won the Smart India Hackathon (SIH) campus round with a student team.",
+        "Demonstrated strong leadership and team coordination through technical events and competitions.",
       ],
     },
     {
       id: 2,
-      period: "2019 — 2021",
+      period: "2021 — 2022",
       degree: "Higher Secondary Certificate (Class XII)",
-      institution: "Senior Secondary School",
+      institution: "Yeshwantrao Chavan College",
       location: "India",
-      specialization: "Physics, Chemistry & Mathematics (PCM) with Computer Science",
+      specialization: "Physics, Chemistry, Mathematics, Biology (PCMB) + Information Technology",
       summary:
-        "Rigorous STEM foundation emphasizing analytical problem solving, linear algebra, calculus, and introductory object-oriented programming.",
+        "Higher secondary education combining a strong foundation in science and mathematics with practical exposure to information technology and computational concepts.",
       coursework: [
         "Advanced Mathematics (Calculus & Vectors)",
         "Applied Physics & Mechanics",
@@ -80,19 +71,19 @@ export default function EducationPage() {
         "Analytical & Computational Reasoning",
       ],
       achievements: [
-        "Secured top tier percentile in regional competitive engineering entrance examinations.",
-        "Awarded academic distinction in Computational Mathematics and Physics.",
+        "Achieved 80% overall in Higher Secondary education.",
+        "Built a broad academic foundation across science, mathematics, and information technology.",
       ],
     },
     {
       id: 3,
-      period: "2018 — 2019",
+      period: "2019 — 2020",
       degree: "Secondary School Certificate (Class X)",
-      institution: "High School",
+      institution: "G A SHAH ENG PRIMARY SCHOOL",
       location: "India",
       specialization: "Core Science, Mathematics & Foundational Computing",
       summary:
-        "Foundational education fostering early interest in software logic, algorithm design, scientific inquiry, and technology leadership.",
+        "Foundational school education with a focus on core academics, personal development, teamwork, and participation in extracurricular activities.",
       coursework: [
         "General Science & Laboratory Research",
         "Foundational Algebra & Geometry",
@@ -100,8 +91,9 @@ export default function EducationPage() {
         "Logic & Reasoning",
       ],
       achievements: [
-        "Graduated with Distinction across science and mathematics disciplines.",
-        "Active participant in regional science exhibitions and mathematics Olympiads.",
+        "Achieved 63% overall in secondary school education.",
+        "Served as Volleyball Team Captain, leading and coordinating the school team.",
+        "Served as Club House Head, taking responsibility for student activities and team coordination.",
       ],
     },
   ];
@@ -234,22 +226,24 @@ export default function EducationPage() {
                           </p>
                         </div>
 
-                        {/* Core Coursework */}
-                        <div>
-                          <span className="text-xs font-mono uppercase tracking-wider text-caramel font-semibold block mb-2.5">
-                            Key Academic Modules
-                          </span>
-                          <div className="flex flex-wrap gap-2">
-                            {item.coursework.map((course) => (
-                              <span
-                                key={course}
-                                className="text-xs px-2.5 py-1 rounded-md bg-cream-dark text-coffee font-medium border border-caramel/20"
-                              >
-                                {course}
-                              </span>
-                            ))}
+                        {/* Core Coursework (Hidden when no verified module list is provided) */}
+                        {item.coursework && item.coursework.length > 0 && (
+                          <div>
+                            <span className="text-xs font-mono uppercase tracking-wider text-caramel font-semibold block mb-2.5">
+                              Key Academic Modules
+                            </span>
+                            <div className="flex flex-wrap gap-2">
+                              {item.coursework.map((course) => (
+                                <span
+                                  key={course}
+                                  className="text-xs px-2.5 py-1 rounded-md bg-cream-dark text-coffee font-medium border border-caramel/20"
+                                >
+                                  {course}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         {/* Key Highlights & Achievements */}
                         <div>

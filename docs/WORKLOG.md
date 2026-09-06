@@ -6,7 +6,7 @@
 ## Current State
 
 ### Current Phase
-**Phase 2 — Core Portfolio (Homepage & Contact Me Page Completed)**
+**Phase 2 — Core Portfolio (Homepage, Education, and Contact Me Completed)**
 
 ### Status
 **In Progress**
@@ -23,6 +23,13 @@
   - Core Capabilities showcase with 6 interactive cards featuring 3D cursor tilt, cursor-following light reflection, layered depth, surface grain texture, viewport entrance animation, and smooth 350ms dark Brownie hover color inversion.
   - Tightened card-to-footer spacing and darkened footer top boundary (`border-brownie/25`) for crisp visual separation.
   - Minimal engineering footer with copyright and branding.
+- Completed Education page (`/education`):
+  - Updated all 3 academic timeline entries with verified data:
+    1. B.Tech in Computer and Communication Engineering, Manipal University Jaipur (2022 – 2025).
+    2. Class XII (HSC), Yeshwantrao Chavan College (2021 – 2022).
+    3. Class X (SSC), G A SHAH ENG PRIMARY SCHOOL (2019 – 2020).
+  - Configured verified concentrations and factual highlights/leadership roles for each milestone.
+  - Retained the entire interactive timeline interaction, card styling, and verified certifications section.
 - Implemented Progressive Neumorphic Navbar:
   - Extracted shared navigation into `src/components/Navbar.tsx` and mounted in `RootLayout`.
   - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography (`< Rajdeep Bakliwal \>`) in Brownie with animated Caramel angle brackets, Coffee secondary links, and Caramel active indicator.
@@ -43,6 +50,25 @@ None.
 ---
 
 # History
+
+## 2026-09-06 — Education Section Verified Content Update
+
+### Completed
+- Replaced placeholder education entries with verified academic credentials:
+  - University Degree: Bachelor of Technology in Computer and Communication Engineering, Manipal University Jaipur (2022 — 2025, Jaipur, India).
+    - Concentration: Artificial Intelligence, Machine Learning, Computer Networks & Systems Architecture.
+    - Highlights: Led IEEE AESS campus events as Event Head; won Smart India Hackathon (SIH) campus round with a student team; demonstrated strong leadership and team coordination.
+  - Higher Secondary (Class XII): Higher Secondary Certificate, Yeshwantrao Chavan College (2021 — 2022, India).
+    - Concentration: Physics, Chemistry, Mathematics, Biology (PCMB) + Information Technology.
+    - Highlights: Achieved 80% overall in Higher Secondary education; built a broad academic foundation across science, mathematics, and information technology.
+    - Kept existing core academic modules intact.
+  - Secondary School (Class X): Secondary School Certificate, G A SHAH ENG PRIMARY SCHOOL (2019 — 2020, India).
+    - Concentration: Core Science, Mathematics & Foundational Computing.
+    - Highlights: Achieved 63% overall in secondary school education; served as Volleyball Team Captain; served as Club House Head.
+    - Kept existing core academic modules intact.
+- Conditionally hid academic coursework modules on entries where no verified list is provided (e.g. university degree).
+- Preserved 100% of existing visual design, timeline layout, card borders, shadows, hover/focus interactions, responsive styling, and color palette.
+- Verified zero regression build with Next.js static generation.
 
 ## 2026-09-06 — Homepage Completion & Interactive Capabilities Refinement
 
