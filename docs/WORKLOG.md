@@ -22,7 +22,8 @@
 - Implemented Progressive Glassmorphism Navbar:
   - Extracted shared navigation into `src/components/Navbar.tsx` and mounted in `RootLayout`.
   - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography with animated cursor `_`.
-  - Scrolled State: Smoothly detaches and transforms into a floating glassmorphism capsule (`max-w-4xl`, `bg-[#0a1219]/80`, `backdrop-blur-[16px] saturate-[140%]`, subtle border, soft drop shadow with teal glow, and active route underline).
+  - Scrolled State: Smoothly detaches and transforms into a floating frosted glassmorphism capsule (`max-w-4xl`, `bg-cream/90`, `backdrop-blur-[16px] saturate-[160%]`, subtle caramel border `border-caramel/30`, soft warm brownie shadow, and solid caramel active route indicator).
+  - Preserved the documented portfolio palette throughout both states: Cream (`#F3E9DC`), Caramel (`#C08552`), Brownie (`#5E3023`), and Coffee (`#895737`).
   - Scroll direction intelligence: Compresses on scroll down and fully restores upon returning to top.
   - Responsive mobile glassmorphism sheet dropdown.
   - Zero layout shift guarantee on page content.
@@ -43,14 +44,16 @@ None.
 ### Completed
 - Created `src/components/Navbar.tsx` implementing a progressive two-state navigation system:
   - State 1 (Top / Hero): Full-width (`max-w-[1360px]`), seamless cream hero background, full-size typography (`Rajdeep Bakliwal_`), and warm link styling.
-  - State 2 (Scrolled): Floating glassmorphism capsule (`max-w-4xl lg:max-w-5xl`, `rounded-full`, `bg-[#0a1219]/80`, `backdrop-blur-[16px] backdrop-saturate-[140%]`, subtle white border, teal ambient glow, off-white text, and teal active underline).
+  - State 2 (Scrolled): Floating glassmorphism capsule (`max-w-4xl lg:max-w-5xl`, `rounded-full`, `bg-cream/90`, `backdrop-blur-[16px] backdrop-saturate-[160%]`, translucent caramel border `border-caramel/30`, warm brownie shadow, and caramel active indicator).
   - Smooth 500ms easing (`cubic-bezier(0.22, 1, 0.36, 1)`) with scroll restoration upon returning to top.
+  - Strictly enforced the documented portfolio color palette (Cream `#F3E9DC`, Caramel `#C08552`, Brownie `#5E3023`, Coffee `#895737`) across both initial and scrolled states.
   - Fully responsive mobile floating glass sheet with smooth transitions.
   - Zero layout shift architecture preserving document flow.
 - Consolidated navigation architecture by mounting `<Navbar />` in `src/app/layout.tsx` and removing duplicated `<header>` blocks across `page.tsx`, `contact/page.tsx`, `education/page.tsx`, and `projects/page.tsx`.
 - Verified production build passes with 0 errors across all 7 static pages.
 
 ### Decisions
+- Strictly locked the navbar to the documented palette (Cream, Caramel, Brownie, Coffee) across all scroll states, preserving brand coherence and eliminating unrelated colors.
 - Replaced 4 duplicated header implementations across route files with a single reusable client component in `src/components/Navbar.tsx`.
 - Used CSS transitions with `cubic-bezier(0.22, 1, 0.36, 1)` for hardware-accelerated animations rather than introducing external heavy animation dependencies, strictly adhering to the Value-First Rule.
 
