@@ -26,6 +26,7 @@
   - Right Information Panel: `// LOCATION` (`India 🇮🇳`), `// FOCUS` (icons & categories), quote section with attribution, and integrated warm multi-ridge mountain landscape & sun silhouette.
   - Continuation on scroll: Core Capabilities 6-card grid and floating circular scroll-to-top button.
 - Verified production build (`pnpm build`) and zero-lag responsive layout across desktop and mobile.
+- Preserved RB brand logo asset (`public/rb-logo.png`) for future splash screen implementation.
 
 ### Next
 - Implement Experience section (`/experience`).
