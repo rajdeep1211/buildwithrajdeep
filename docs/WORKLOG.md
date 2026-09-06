@@ -18,14 +18,15 @@
 - `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
 - Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
 - Implemented Contact Me page (`/contact`) with Cream, Caramel, Brownie, and Coffee documentation palette.
-- Redesigned Homepage (`/`) with an editorial Developer Terminal Workspace hero and Core Capabilities continuation:
-  - Header: `Rajdeep Bakliwal_` with animated cursor, seamless cream navigation with clean link spacing, and active Caramel underline on `Home`.
-  - 3D Developer Terminal Window: 1360px container with matching Brownie boundary (`border-2 border-brownie`), extruded 3D physical shadow (`8px 10px 0px 0px #472319`), top chamfer highlight, recessed inner screen shadow, and hover lift.
-  - Terminal Chrome: Dark Brownie header with macOS window dots, monospace title `buildwithrajdeep@portfolio: ~`, tagline `Ideas. Code. People. Impact.`, and corner-bracket expand icon.
-  - Left Workspace Panel: `whoami` (bold technical heading), `cat about.txt` (clean monospace text), `ls` (horizontal folder directory links), aligned 3-column `status` table, and blinking block cursor.
-  - Right Information Panel: `// LOCATION` (`India 🇮🇳`), `// FOCUS` (icons & categories), quote section with attribution, and integrated warm multi-ridge mountain landscape & sun silhouette.
-  - Continuation on scroll: Core Capabilities 6-card grid and floating circular scroll-to-top button.
-- Verified production build (`pnpm build`) and zero-lag responsive layout across desktop and mobile.
+- Redesigned Homepage (`/`) with an editorial Developer Terminal Workspace hero and Core Capabilities continuation.
+- Implemented Progressive Glassmorphism Navbar:
+  - Extracted shared navigation into `src/components/Navbar.tsx` and mounted in `RootLayout`.
+  - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography with animated cursor `_`.
+  - Scrolled State: Smoothly detaches and transforms into a floating glassmorphism capsule (`max-w-4xl`, `bg-[#0a1219]/80`, `backdrop-blur-[16px] saturate-[140%]`, subtle border, soft drop shadow with teal glow, and active route underline).
+  - Scroll direction intelligence: Compresses on scroll down and fully restores upon returning to top.
+  - Responsive mobile glassmorphism sheet dropdown.
+  - Zero layout shift guarantee on page content.
+- Verified production build with Next.js static generation.
 
 ### Next
 - Implement Experience section (`/experience`).
@@ -36,6 +37,24 @@ None.
 ---
 
 # History
+
+## 2026-09-06 — Progressive Glassmorphism Navbar Implementation
+
+### Completed
+- Created `src/components/Navbar.tsx` implementing a progressive two-state navigation system:
+  - State 1 (Top / Hero): Full-width (`max-w-[1360px]`), seamless cream hero background, full-size typography (`Rajdeep Bakliwal_`), and warm link styling.
+  - State 2 (Scrolled): Floating glassmorphism capsule (`max-w-4xl lg:max-w-5xl`, `rounded-full`, `bg-[#0a1219]/80`, `backdrop-blur-[16px] backdrop-saturate-[140%]`, subtle white border, teal ambient glow, off-white text, and teal active underline).
+  - Smooth 500ms easing (`cubic-bezier(0.22, 1, 0.36, 1)`) with scroll restoration upon returning to top.
+  - Fully responsive mobile floating glass sheet with smooth transitions.
+  - Zero layout shift architecture preserving document flow.
+- Consolidated navigation architecture by mounting `<Navbar />` in `src/app/layout.tsx` and removing duplicated `<header>` blocks across `page.tsx`, `contact/page.tsx`, `education/page.tsx`, and `projects/page.tsx`.
+- Verified production build passes with 0 errors across all 7 static pages.
+
+### Decisions
+- Replaced 4 duplicated header implementations across route files with a single reusable client component in `src/components/Navbar.tsx`.
+- Used CSS transitions with `cubic-bezier(0.22, 1, 0.36, 1)` for hardware-accelerated animations rather than introducing external heavy animation dependencies, strictly adhering to the Value-First Rule.
+
+---
 
 ## 2026-09-06 — Splash Screen Discarded & Asset Cleanup
 

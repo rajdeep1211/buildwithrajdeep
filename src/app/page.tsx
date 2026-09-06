@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -83,123 +82,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-cream text-brownie relative selection:bg-caramel/30 selection:text-brownie">
-      {/* 1. Header / Navigation */}
-      <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md transition-all">
-        <div className="max-w-[1360px] mx-auto px-6 sm:px-10 lg:px-12 h-24 flex items-center justify-between">
-          {/* Left: Personal Branding */}
-          <a
-            href="/"
-            className="group flex items-center focus:outline-none"
-            aria-label="Rajdeep Bakliwal Home"
-          >
-            <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brownie group-hover:text-caramel transition-colors">
-              Rajdeep Bakliwal
-            </span>
-            <span className="font-mono text-2xl sm:text-3xl font-bold text-caramel animate-pulse ml-0.5">
-              _
-            </span>
-          </a>
-
-          {/* Right: Desktop Navigation without dots matching design */}
-          <nav className="hidden md:flex items-center space-x-7 lg:space-x-9 text-base font-medium">
-            <div className="flex flex-col items-center">
-              <a
-                href="/"
-                className="text-brownie font-semibold hover:text-caramel transition-colors"
-              >
-                Home
-              </a>
-              <span className="w-8 sm:w-10 h-[2.5px] bg-caramel rounded-full mt-1" />
-            </div>
-            <a
-              href="/education"
-              className="text-coffee hover:text-brownie transition-colors"
-            >
-              Education
-            </a>
-            <a
-              href="/experience"
-              className="text-coffee hover:text-brownie transition-colors"
-            >
-              Experience
-            </a>
-            <a
-              href="/projects"
-              className="text-coffee hover:text-brownie transition-colors"
-            >
-              Projects
-            </a>
-            <a
-              href="/contact"
-              className="text-coffee hover:text-brownie transition-colors"
-            >
-              Contact Me
-            </a>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-brownie hover:bg-cream-dark transition-colors focus:outline-none"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Dropdown */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-b border-caramel/20 bg-cream/95 px-6 pt-2 pb-6 space-y-3 shadow-md">
-            <a
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-semibold text-caramel"
-            >
-              Home
-            </a>
-            <a
-              href="/education"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Education
-            </a>
-            <a
-              href="/experience"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Experience
-            </a>
-            <a
-              href="/projects"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Projects
-            </a>
-            <a
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Contact Me
-            </a>
-          </div>
-        )}
-      </header>
-
       {/* Main Content */}
       <main className="flex-1">
         {/* 2. Hero Section: Sophisticated Developer Terminal Workspace (Pixel-accurate to design) */}

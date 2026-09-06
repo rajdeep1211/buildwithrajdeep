@@ -15,7 +15,6 @@ interface ProjectItem {
 }
 
 export default function ProjectsPage() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -288,117 +287,6 @@ export default function ProjectsPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-cream text-brownie">
-      {/* 1. Header / Navigation */}
-      <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md transition-all">
-        <div className="max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-16 xl:px-20 h-24 flex items-center justify-between">
-          {/* Left: Personal Branding */}
-          <a
-            href="/"
-            className="group flex flex-col focus:outline-none"
-            aria-label="Rajdeep Bakliwal Home"
-          >
-            <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-brownie group-hover:text-caramel transition-colors">
-              Rajdeep Bakliwal
-            </span>
-          </a>
-
-          {/* Right: Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10 text-base font-medium">
-            <a
-              href="/"
-              className="text-brownie/85 hover:text-caramel transition-colors"
-            >
-              Home
-            </a>
-            <a
-              href="/education"
-              className="text-brownie/85 hover:text-caramel transition-colors"
-            >
-              Education
-            </a>
-            <a
-              href="/experience"
-              className="text-brownie/85 hover:text-caramel transition-colors"
-            >
-              Experience
-            </a>
-            <a
-              href="/projects"
-              className="relative text-caramel font-semibold after:absolute after:-bottom-1.5 after:left-0 after:right-0 after:h-0.5 after:bg-caramel after:rounded-full"
-            >
-              Projects
-            </a>
-            <a
-              href="/contact"
-              className="text-brownie/85 hover:text-caramel transition-colors"
-            >
-              Contact Me
-            </a>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-brownie hover:bg-cream-dark transition-colors focus:outline-none"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation Dropdown */}
-        {mobileMenuOpen && (
-          <div className="md:hidden border-b border-caramel/20 bg-cream/95 px-6 pt-2 pb-6 space-y-3 shadow-md">
-            <a
-              href="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Home
-            </a>
-            <a
-              href="/education"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Education
-            </a>
-            <a
-              href="/experience"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Experience
-            </a>
-            <a
-              href="/projects"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-semibold text-caramel"
-            >
-              Projects
-            </a>
-            <a
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-base font-medium text-brownie/90 hover:text-caramel"
-            >
-              Contact Me
-            </a>
-          </div>
-        )}
-      </header>
-
       {/* Main Content */}
       <main className="flex-1">
         <section className="py-16 sm:py-24 px-6 sm:px-12 lg:px-16 xl:px-20 max-w-[1400px] mx-auto">
