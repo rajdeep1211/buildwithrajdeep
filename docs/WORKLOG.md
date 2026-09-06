@@ -26,7 +26,6 @@
   - Right Information Panel: `// LOCATION` (`India 🇮🇳`), `// FOCUS` (icons & categories), quote section with attribution, and integrated warm multi-ridge mountain landscape & sun silhouette.
   - Continuation on scroll: Core Capabilities 6-card grid and floating circular scroll-to-top button.
 - Verified production build (`pnpm build`) and zero-lag responsive layout across desktop and mobile.
-- Preserved RB brand logo asset (`public/rb-logo.png`) for future splash screen implementation.
 
 ### Next
 - Implement Experience section (`/experience`).
@@ -38,16 +37,17 @@ None.
 
 # History
 
-## 2026-09-06 — Splash Screen Prototyping & Asset Preservation
+## 2026-09-06 — Splash Screen Discarded & Asset Cleanup
 
 ### Completed
-- Prototyped and verified animated boot sequence and circular reveal splash implementations.
-- Integrated and preserved the official high-resolution RB monogram asset at `public/rb-logo.png`.
-- Reverted active splash overlay components from the core layout per user request to keep the homepage directly accessible and implement the splash screen later.
+- Prototyped and evaluated animated boot sequence and circular reveal splash screen implementations.
+- Deleted all code, components, and files associated with the splash screen concept, including `public/rb-logo.png`.
+- Verified that no splash-related dependencies, styles, or artifacts remain in the codebase.
 
 ### Decisions
-- Retain the official RB logo asset in `public/rb-logo.png` for future splash screen implementation.
-- Keep the homepage (`/`) immediately accessible with zero loading delay during current development.
+- Fully discarded the splash screen / intro animation per the Value-First principle: portfolios must prioritize instant content accessibility without loading delays or decorative friction.
+- Decided not to retain the RB logo file or deferred splash assets to keep the repository clean, lean, and intentional.
+- Homepage (`/`) remains immediately accessible with zero loading delay.
 
 ---
 
