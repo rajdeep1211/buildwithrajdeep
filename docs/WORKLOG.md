@@ -38,7 +38,21 @@ None.
 
 # History
 
+## 2026-09-06 — Splash Screen Prototyping & Asset Preservation
+
+### Completed
+- Prototyped and verified animated boot sequence and circular reveal splash implementations.
+- Integrated and preserved the official high-resolution RB monogram asset at `public/rb-logo.png`.
+- Reverted active splash overlay components from the core layout per user request to keep the homepage directly accessible and implement the splash screen later.
+
+### Decisions
+- Retain the official RB logo asset in `public/rb-logo.png` for future splash screen implementation.
+- Keep the homepage (`/`) immediately accessible with zero loading delay during current development.
+
+---
+
 ## 2026-09-05 — Foundation
+
 
 ### Completed
 - Defined the portfolio documentation architecture.
