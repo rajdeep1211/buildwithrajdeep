@@ -6,7 +6,7 @@
 ## Current State
 
 ### Current Phase
-**Phase 2 — Core Portfolio (Contact Me Page Completed)**
+**Phase 2 — Core Portfolio (Homepage & Contact Me Page Completed)**
 
 ### Status
 **In Progress**
@@ -18,15 +18,20 @@
 - `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
 - Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
 - Implemented Contact Me page (`/contact`) with Cream, Caramel, Brownie, and Coffee documentation palette.
-- Redesigned Homepage (`/`) with an editorial Developer Terminal Workspace hero and Core Capabilities continuation.
-- Implemented Progressive Glassmorphism Navbar:
+- Completed Homepage (`/`):
+  - Editorial Developer Terminal Workspace hero with interactive commands (`whoami`, `about`, `quote`, `clear`).
+  - Core Capabilities showcase with 6 interactive cards featuring 3D cursor tilt, cursor-following light reflection, layered depth, surface grain texture, viewport entrance animation, and smooth 350ms dark Brownie hover color inversion.
+  - Tightened card-to-footer spacing and darkened footer top boundary (`border-brownie/25`) for crisp visual separation.
+  - Minimal engineering footer with copyright and branding.
+- Implemented Progressive Neumorphic Navbar:
   - Extracted shared navigation into `src/components/Navbar.tsx` and mounted in `RootLayout`.
-  - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography with animated cursor `_`.
-  - Scrolled State: Smoothly detaches and transforms into a floating frosted glassmorphism capsule (`max-w-4xl`, `bg-cream/90`, `backdrop-blur-[16px] saturate-[160%]`, subtle caramel border `border-caramel/30`, soft warm brownie shadow, and solid caramel active route indicator).
+  - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography (`< Rajdeep Bakliwal \>`) in Brownie with animated Caramel angle brackets, Coffee secondary links, and Caramel active indicator.
+  - Scrolled State: Smoothly detaches and transforms into a floating Dark Brownie Neumorphic capsule (`max-w-4xl`, solid tactile `bg-brownie-dark`, dual-directional light highlight `-4px -4px 14px rgba(255,255,255,0.75)` and deep shadow `6px 10px 24px rgba(71,35,25,0.32)`, chamfered top inner reflection `inset 0 1px 1px rgba(255,255,255,0.2)`, translucent caramel border `border-caramel/40`, light shade Cream text, and solid Caramel active route indicator).
   - Preserved the documented portfolio palette throughout both states: Cream (`#F3E9DC`), Caramel (`#C08552`), Brownie (`#5E3023`), and Coffee (`#895737`).
   - Scroll direction intelligence: Compresses on scroll down and fully restores upon returning to top.
-  - Responsive mobile glassmorphism sheet dropdown.
+  - Responsive mobile neumorphic sheet dropdown.
   - Zero layout shift guarantee on page content.
+  - Header Personal Branding: Wrapped personal name with `<` and `\>` in monospace Caramel font with pulsing animation (`< Rajdeep Bakliwal \>`).
 - Verified production build with Next.js static generation.
 
 ### Next
@@ -39,21 +44,46 @@ None.
 
 # History
 
-## 2026-09-06 — Progressive Glassmorphism Navbar Implementation
+## 2026-09-06 — Homepage Completion & Interactive Capabilities Refinement
+
+### Completed
+- Implemented interactive capabilities prototype component in `src/components/InteractiveCapabilityCard.tsx`:
+  - 3D cursor tilt calculated from mouse position (limited to ~3–4° for subtle, non-distracting motion).
+  - Cursor-following light reflection with dynamic radial gradient mask.
+  - Multi-layer spatial depth (`translateZ` on icon badge, title, and description).
+  - Subtle surface grain texture overlay for physical paper/matte tactile feel.
+  - 8px hover lift with layered shadow deepening.
+  - Smooth 350ms dual-state hover color inversion: default light card + dark text transitions into dark Brownie (`#5E3023`) card + light Cream (`#F3E9DC`) typography without altering original color identity.
+  - Staggered viewport entrance animation via `IntersectionObserver`.
+- Layout & Spacing Polish:
+  - Reduced vertical spacing between the capabilities card grid and the footer (`pt-16 pb-8 sm:pt-20 sm:pb-10 lg:pt-24 lg:pb-12`).
+  - Darkened the footer top border from `border-caramel/15` to `border-brownie/25` for distinct sectional separation.
+- Header Branding Enhancement:
+  - Updated left navbar personal branding to `< Rajdeep Bakliwal \>` in `src/components/Navbar.tsx`.
+  - Both `<` and `\>` styled in monospace bold Caramel (`text-caramel font-mono font-bold`) with terminal pulse animation (`animate-pulse`).
+  - Fluid scale transition between top hero state (`text-2xl sm:text-3xl`) and scrolled capsule state (`text-lg sm:text-xl`).
+- Verified zero regression build with Next.js static generation across all 7 routes.
+
+### Decisions
+- Preserved documented color palette (Cream `#F3E9DC`, Caramel `#C08552`, Brownie `#5E3023`, Coffee `#895737`) during hover inversion, ensuring no arbitrary or unapproved colors entered the design.
+- Maintained card tilt and light interactions as an isolated component (`InteractiveCapabilityCard.tsx`) for clean maintainability.
+- Selected `border-brownie/25` for footer divider to establish grounding separation against the light cream background.
+
+## 2026-09-06 — Progressive Neumorphic Navbar Implementation
 
 ### Completed
 - Created `src/components/Navbar.tsx` implementing a progressive two-state navigation system:
-  - State 1 (Top / Hero): Full-width (`max-w-[1360px]`), seamless cream hero background, full-size typography (`Rajdeep Bakliwal_`), and warm link styling.
-  - State 2 (Scrolled): Floating glassmorphism capsule (`max-w-4xl lg:max-w-5xl`, `rounded-full`, `bg-cream/90`, `backdrop-blur-[16px] backdrop-saturate-[160%]`, translucent caramel border `border-caramel/30`, warm brownie shadow, and caramel active indicator).
+  - State 1 (Top / Hero): Full-width (`max-w-[1360px]`), seamless cream hero background, full-size Brownie typography (`Rajdeep Bakliwal_`), Coffee links, and Caramel active underline.
+  - State 2 (Scrolled Neumorphism): Floating solid tactile capsule (`max-w-4xl lg:max-w-5xl`, `rounded-full`), dark shade background (`bg-brownie-dark`), tactile light reflection and deep shadow (`shadow-[6px_10px_24px_rgba(71,35,25,0.32),-4px_-4px_14px_rgba(255,255,255,0.75),inset_0_1px_1px_rgba(255,255,255,0.2)]`), translucent caramel border (`border-caramel/40`), and light shade typography (`text-cream` with Caramel active indicator).
   - Smooth 500ms easing (`cubic-bezier(0.22, 1, 0.36, 1)`) with scroll restoration upon returning to top.
   - Strictly enforced the documented portfolio color palette (Cream `#F3E9DC`, Caramel `#C08552`, Brownie `#5E3023`, Coffee `#895737`) across both initial and scrolled states.
-  - Fully responsive mobile floating glass sheet with smooth transitions.
+  - Fully responsive mobile floating sheet with smooth transitions.
   - Zero layout shift architecture preserving document flow.
 - Consolidated navigation architecture by mounting `<Navbar />` in `src/app/layout.tsx` and removing duplicated `<header>` blocks across `page.tsx`, `contact/page.tsx`, `education/page.tsx`, and `projects/page.tsx`.
 - Verified production build passes with 0 errors across all 7 static pages.
 
 ### Decisions
-- Strictly locked the navbar to the documented palette (Cream, Caramel, Brownie, Coffee) across all scroll states, preserving brand coherence and eliminating unrelated colors.
+- Replaced glassmorphism (translucent blur) with Neumorphism (solid tactile surface with dual-directional light/shadow modeling) in the scrolled state, matching the physical 3D aesthetic of the developer terminal window.
 - Replaced 4 duplicated header implementations across route files with a single reusable client component in `src/components/Navbar.tsx`.
 - Used CSS transitions with `cubic-bezier(0.22, 1, 0.36, 1)` for hardware-accelerated animations rather than introducing external heavy animation dependencies, strictly adhering to the Value-First Rule.
 

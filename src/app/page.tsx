@@ -1,9 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import InteractiveCapabilityCard from "@/components/InteractiveCapabilityCard";
 
 export default function HomePage() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [capabilitiesVisible, setCapabilitiesVisible] = useState(false);
+  const capabilitiesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCapabilitiesVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (capabilitiesRef.current) {
+      observer.observe(capabilitiesRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -316,8 +336,8 @@ export default function HomePage() {
         </section>
 
         {/* 3. Core Capabilities Section (Matching the shared image directly on scroll) */}
-        <section className="py-16 sm:py-20 lg:py-24 px-6 sm:px-12 lg:px-16 xl:px-20 max-w-[1400px] mx-auto">
-          <div className="space-y-12 lg:space-y-16">
+        <section className="pt-16 pb-8 sm:pt-20 sm:pb-10 lg:pt-24 lg:pb-12 px-6 sm:px-12 lg:px-16 xl:px-20 max-w-[1400px] mx-auto">
+          <div className="space-y-10 lg:space-y-12">
             {/* Section Heading */}
             <div className="text-left space-y-3 max-w-2xl">
               <span className="text-xs font-mono font-bold uppercase tracking-wider text-caramel">
@@ -332,25 +352,17 @@ export default function HomePage() {
             </div>
 
             {/* 6 Capabilities Cards Grid (3 Columns, 2 Rows) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {capabilities.map((item) => (
-                <div
+            <div
+              ref={capabilitiesRef}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+            >
+              {capabilities.map((item, index) => (
+                <InteractiveCapabilityCard
                   key={item.title}
-                  className="p-7 sm:p-8 rounded-3xl bg-cream-dark/30 border border-caramel/25 shadow-xs hover:border-caramel/50 hover:bg-cream-dark/40 transition-all duration-150 space-y-5 flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    {/* Card Icon Badge */}
-                    <div className="w-11 h-11 rounded-2xl bg-cream border border-caramel/25 flex items-center justify-center text-caramel shadow-2xs">
-                      {item.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-brownie tracking-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-brownie/85 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
+                  item={item}
+                  index={index}
+                  isVisible={capabilitiesVisible}
+                />
               ))}
             </div>
           </div>
@@ -371,8 +383,8 @@ export default function HomePage() {
         </button>
       )}
 
-      {/* 5. Minimal Footer */}
-      <footer className="border-t border-caramel/15 py-8 px-6 sm:px-12 lg:px-16 xl:px-20 bg-cream text-xs text-coffee">
+      {/* 5. Minimal Footer with Darker Separation Boundary */}
+      <footer className="border-t border-brownie/25 py-8 px-6 sm:px-12 lg:px-16 xl:px-20 bg-cream text-xs text-coffee">
         <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="font-serif font-bold text-brownie text-base">
             Rajdeep Bakliwal

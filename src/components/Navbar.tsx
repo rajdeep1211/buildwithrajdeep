@@ -54,11 +54,14 @@ export default function Navbar() {
             : "pt-0 px-0"
         }`}
       >
-        {/* Navigation Bar Capsule with locked Cream, Caramel, Brownie, Coffee palette */}
+        {/* Navigation Bar:
+            - Initial / Top state: Seamless Cream hero integration with Brownie & Coffee text.
+            - Scrolled Neumorphism state: Dark shade (Brownie Dark) solid tactile capsule with physical light highlight, deep shadow, and Light shade (Cream & Caramel) text.
+        */}
         <div
           className={`mx-auto pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isScrolled
-              ? "max-w-4xl lg:max-w-5xl rounded-full bg-cream/90 backdrop-blur-[16px] backdrop-saturate-[160%] border border-caramel/30 shadow-[0_12px_32px_rgba(94,48,35,0.12),0_2px_8px_rgba(94,48,35,0.06)] px-5 sm:px-8 py-2.5 sm:py-3"
+              ? "max-w-4xl lg:max-w-5xl rounded-full bg-brownie-dark border border-caramel/40 shadow-[6px_10px_24px_rgba(71,35,25,0.32),-4px_-4px_14px_rgba(255,255,255,0.75),inset_0_1px_1px_rgba(255,255,255,0.2),inset_0_-1px_1px_rgba(0,0,0,0.3)] px-5 sm:px-8 py-2.5 sm:py-3"
               : "max-w-[1360px] rounded-none bg-cream/95 backdrop-blur-md border-b border-transparent shadow-none px-6 sm:px-10 lg:px-12 py-5 sm:py-6"
           }`}
         >
@@ -70,22 +73,31 @@ export default function Navbar() {
               aria-label="Rajdeep Bakliwal Home"
             >
               <span
-                className={`font-serif font-bold tracking-tight text-brownie group-hover:text-caramel transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`font-mono font-bold text-caramel animate-pulse mr-1.5 sm:mr-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                   isScrolled
                     ? "text-lg sm:text-xl"
                     : "text-2xl sm:text-3xl"
+                }`}
+              >
+                &lt;
+              </span>
+              <span
+                className={`font-serif font-bold tracking-tight transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  isScrolled
+                    ? "text-lg sm:text-xl text-cream group-hover:text-caramel"
+                    : "text-2xl sm:text-3xl text-brownie group-hover:text-caramel"
                 }`}
               >
                 Rajdeep Bakliwal
               </span>
               <span
-                className={`font-mono font-bold text-caramel animate-pulse ml-0.5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                className={`font-mono font-bold text-caramel animate-pulse ml-1.5 sm:ml-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                   isScrolled
                     ? "text-lg sm:text-xl"
                     : "text-2xl sm:text-3xl"
                 }`}
               >
-                _
+                {"\\>"}
               </span>
             </a>
 
@@ -100,6 +112,7 @@ export default function Navbar() {
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
 
+                // Scrolled Neumorphic State: Light shade text on Dark shade tactile capsule
                 if (isScrolled) {
                   return (
                     <a
@@ -107,19 +120,19 @@ export default function Navbar() {
                       href={link.href}
                       className={`relative py-1 transition-colors duration-200 ${
                         isActive
-                          ? "text-brownie font-semibold"
-                          : "text-coffee hover:text-brownie"
+                          ? "text-cream font-semibold"
+                          : "text-cream/80 hover:text-cream"
                       }`}
                     >
                       <span>{link.name}</span>
                       {isActive && (
-                        <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-caramel rounded-full shadow-[0_1px_4px_rgba(192,133,82,0.4)]" />
+                        <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-caramel rounded-full shadow-[0_1px_4px_rgba(192,133,82,0.6)]" />
                       )}
                     </a>
                   );
                 }
 
-                // Initial / Full-Size Hero State
+                // Initial / Full-Size Hero State: Dark shade (Brownie & Coffee) text on light Cream hero background
                 return (
                   <div key={link.name} className="flex flex-col items-center">
                     <a
@@ -145,7 +158,11 @@ export default function Navbar() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-brownie hover:bg-cream-dark transition-colors focus:outline-none"
+                className={`p-2 rounded-lg transition-colors focus:outline-none ${
+                  isScrolled
+                    ? "text-cream hover:bg-white/10"
+                    : "text-brownie hover:bg-cream-dark"
+                }`}
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? (
@@ -178,7 +195,7 @@ export default function Navbar() {
             <div
               className={`rounded-2xl p-5 space-y-3 transition-all duration-300 ${
                 isScrolled
-                  ? "bg-cream/95 backdrop-blur-[20px] border border-caramel/30 shadow-[0_16px_40px_rgba(94,48,35,0.18)]"
+                  ? "bg-brownie-dark border border-caramel/40 shadow-[8px_12px_28px_rgba(71,35,25,0.38),-4px_-4px_12px_rgba(255,255,255,0.65),inset_0_1px_1px_rgba(255,255,255,0.2)]"
                   : "bg-cream/95 backdrop-blur-md border border-caramel/20 shadow-xl"
               }`}
             >
@@ -191,7 +208,11 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={`block py-2 px-3 rounded-lg text-base font-medium transition-colors ${
-                      isActive
+                      isScrolled
+                        ? isActive
+                          ? "text-caramel bg-caramel/20 font-semibold"
+                          : "text-cream/90 hover:text-caramel hover:bg-white/10"
+                        : isActive
                         ? "text-caramel bg-caramel/10 font-semibold"
                         : "text-brownie/90 hover:text-caramel hover:bg-cream-dark/50"
                     }`}
