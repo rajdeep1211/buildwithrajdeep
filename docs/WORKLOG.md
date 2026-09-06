@@ -29,7 +29,14 @@
     2. Class XII (HSC), Yeshwantrao Chavan College (2021 – 2022).
     3. Class X (SSC), G A SHAH ENG PRIMARY SCHOOL (2019 – 2020).
   - Configured verified concentrations and factual highlights/leadership roles for each milestone.
-  - Retained the entire interactive timeline interaction, card styling, and verified certifications section.
+  - Modernized Certifications section into a compact, responsive 4-column 3D credential gallery:
+    - 10 real verified certificates (Cisco, Google Cloud, DeepLearning.AI, UC San Diego, Colorado, Google, IBM, HKUST, Bocconi).
+    - 3D physical card styling: perspective, ±3.8° cursor tilt, cursor light reflection, micro surface grain, layered depth (`translateZ`), and bevel edge highlight.
+    - Simplified information hierarchy prioritizing Issuer, bold Title, Category chip, Date, and "View Certificate →".
+    - Structured data model (`CertificateItem`) with direct GitHub PDF repository URLs and local preview paths.
+    - Extracted, organized, and hosted all 10 verified certificate PDFs inside `public/certificates/`.
+    - Connected "View Certificate" action on each credential card to open the verified certificate PDF directly in GitHub (`https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/[filename].pdf`) in a new tab with `target="_blank"` and `rel="noopener noreferrer"`.
+  - Retained the entire interactive timeline interaction, card styling, and color palette.
 - Implemented Progressive Neumorphic Navbar:
   - Extracted shared navigation into `src/components/Navbar.tsx` and mounted in `RootLayout`.
   - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography (`< Rajdeep Bakliwal \>`) in Brownie with animated Caramel angle brackets, Coffee secondary links, and Caramel active indicator.
@@ -50,6 +57,49 @@ None.
 ---
 
 # History
+
+## 2026-09-06 — Certifications Section Structural & GitHub Redirection Update
+
+### Completed
+- Hosted all 10 verified certificate PDFs inside `public/certificates/`:
+  1. `01-ccna-introduction-to-networks.pdf`
+  2. `02-ccna-switching-routing-wireless.pdf`
+  3. `03-introduction-to-generative-ai.pdf` (split cleanly from multi-page PDF)
+  4. `04-ai-for-everyone.pdf` (split cleanly from multi-page PDF)
+  5. `05-symmetric-cryptography.pdf`
+  6. `06-algorithmic-toolbox.pdf`
+  7. `07-foundations-of-data-science.pdf`
+  8. `08-introduction-to-software-engineering.pdf`
+  9. `09-software-engineering-uml.pdf`
+  10. `10-management-fashion-luxury.pdf`
+- Updated `InteractiveCertificationCard.tsx`:
+  - Replaced `<button>` with accessible `<a>` tag configured with `target="_blank"` and `rel="noopener noreferrer"`.
+  - Configured `url` fallback resolving directly to GitHub repository blob URLs.
+- Populated all 10 certificate items in `src/app/education/page.tsx` with their respective GitHub blob URLs and preview paths.
+- Transformed Certifications section from 3 oversized cards into a compact, responsive 4-column 3D credential gallery:
+  - Responsive layout: Desktop 4 columns, Tablet 2 columns, Mobile 1 column (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6`).
+  - Integrated 10 real verified certificates from course/certification files:
+    1. CCNAv7: Introduction to Networks (Cisco)
+    2. CCNAv7: Switching, Routing, and Wireless Essentials (Cisco)
+    3. Introduction to Generative AI (Google Cloud via Coursera)
+    4. AI for Everyone (DeepLearning.AI via Coursera)
+    5. Symmetric Cryptography (University of Colorado System via Coursera)
+    6. Algorithmic Toolbox (UC San Diego via Coursera)
+    7. Foundations of Data Science (Google via Coursera)
+    8. Introduction to Software Engineering (IBM via Coursera)
+    9. Software Engineering: Modeling Software Systems using UML (HKUST via Coursera)
+    10. Management of Fashion and Luxury Companies (Università Bocconi via Coursera)
+  - Excluded unverified/third-party certificates (specifically excluded "Wireless Communications for Everybody").
+- Implemented `InteractiveCertificationCard.tsx` with physical 3D properties:
+  - 3D perspective and cursor-following tilt (±3.8° constraint).
+  - Subtle directional shadow deepening on hover (`-6px` lift).
+  - Cursor-following dynamic radial light beam reflection.
+  - Micro surface grain/noise texture overlay (`opacity-[0.035]`).
+  - Subtle bevel edge highlight (`inset 0 1px 1px rgba(255,255,255,0.15)`).
+  - Multi-layer spatial depth (`translateZ` on category chip, title/issuer, and action button).
+- Simplified information hierarchy prioritizing Issuer/Platform, bold Title, Category chip, Date, and "View Certificate →".
+- Prepared structured `CertificateItem` model (`preview: null`) ready for modal/lightbox integration in subsequent updates.
+- Verified zero-regression Next.js static build across all 7 routes.
 
 ## 2026-09-06 — Education Section Verified Content Update
 

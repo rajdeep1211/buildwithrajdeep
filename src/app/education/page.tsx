@@ -1,6 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import InteractiveCertificationCard, {
+  CertificateItem,
+} from "@/components/InteractiveCertificationCard";
 
 interface EducationItem {
   id: number;
@@ -12,15 +15,6 @@ interface EducationItem {
   summary: string;
   coursework?: string[];
   achievements: string[];
-}
-
-interface CertificationItem {
-  title: string;
-  issuer: string;
-  date: string;
-  credentialId: string;
-  description: string;
-  url: string;
 }
 
 export default function EducationPage() {
@@ -98,34 +92,105 @@ export default function EducationPage() {
     },
   ];
 
-  // Exactly 3 Certification Entries
-  const certifications: CertificationItem[] = [
+  // 10 Real Verified Certifications
+  const certifications: CertificateItem[] = [
     {
-      title: "Deep Learning Specialization",
+      id: "01",
+      title: "CCNAv7: Introduction to Networks",
+      issuer: "Cisco Networking Academy",
+      date: "22 Mar 2024",
+      category: "Networking",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/01-ccna-introduction-to-networks.pdf",
+      preview: "/certificates/01-ccna-introduction-to-networks.pdf",
+    },
+    {
+      id: "02",
+      title: "CCNAv7: Switching, Routing, and Wireless Essentials",
+      issuer: "Cisco Networking Academy",
+      date: "29 Mar 2024",
+      category: "Networking",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/02-ccna-switching-routing-wireless.pdf",
+      preview: "/certificates/02-ccna-switching-routing-wireless.pdf",
+    },
+    {
+      id: "03",
+      title: "Introduction to Generative AI",
+      issuer: "Google Cloud",
+      platform: "Coursera",
+      date: "Apr 16, 2025",
+      category: "Artificial Intelligence",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/03-introduction-to-generative-ai.pdf",
+      preview: "/certificates/03-introduction-to-generative-ai.pdf",
+    },
+    {
+      id: "04",
+      title: "AI for Everyone",
       issuer: "DeepLearning.AI",
-      date: "2024",
-      credentialId: "DL-AI-2024-9842",
-      description:
-        "Comprehensive mastery of Neural Networks, CNNs, Sequence Models, Transformers, and optimization strategies for practical deep learning systems.",
-      url: "https://www.deeplearning.ai",
+      platform: "Coursera",
+      date: "Apr 15, 2025",
+      category: "Artificial Intelligence",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/04-ai-for-everyone.pdf",
+      preview: "/certificates/04-ai-for-everyone.pdf",
     },
     {
-      title: "Machine Learning Specialization",
-      issuer: "Stanford Online & DeepLearning.AI",
-      date: "2023",
-      credentialId: "ML-STAN-2023-4109",
-      description:
-        "Foundational and advanced machine learning algorithms including supervised learning, unsupervised learning, recommendation systems, and reinforcement learning.",
-      url: "https://www.coursera.org",
+      id: "05",
+      title: "Symmetric Cryptography",
+      issuer: "University of Colorado System",
+      platform: "Coursera",
+      date: "Nov 5, 2024",
+      category: "Cybersecurity",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/05-symmetric-cryptography.pdf",
+      preview: "/certificates/05-symmetric-cryptography.pdf",
     },
     {
-      title: "Cloud & Full-Stack Systems Engineering",
-      issuer: "AWS / Google Cloud Training",
-      date: "2024",
-      credentialId: "ARCH-CLOUD-2024-8173",
-      description:
-        "Architecting resilient cloud platforms, automated CI/CD deployment pipelines, containerized backend services, and scalable web infrastructures.",
-      url: "https://aws.amazon.com",
+      id: "06",
+      title: "Algorithmic Toolbox",
+      issuer: "University of California San Diego",
+      platform: "Coursera",
+      date: "Nov 28, 2024",
+      category: "Algorithms",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/06-algorithmic-toolbox.pdf",
+      preview: "/certificates/06-algorithmic-toolbox.pdf",
+    },
+    {
+      id: "07",
+      title: "Foundations of Data Science",
+      issuer: "Google",
+      platform: "Coursera",
+      date: "Nov 17, 2024",
+      category: "Data Science",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/07-foundations-of-data-science.pdf",
+      preview: "/certificates/07-foundations-of-data-science.pdf",
+    },
+    {
+      id: "08",
+      title: "Introduction to Software Engineering",
+      issuer: "IBM",
+      platform: "Coursera",
+      date: "Nov 6, 2024",
+      category: "Software Engineering",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/08-introduction-to-software-engineering.pdf",
+      preview: "/certificates/08-introduction-to-software-engineering.pdf",
+    },
+    {
+      id: "09",
+      title: "Software Engineering: Modeling Software Systems using UML",
+      issuer: "The Hong Kong University of Science and Technology",
+      platform: "Coursera",
+      date: "Nov 7, 2024",
+      category: "Software Engineering",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/09-software-engineering-uml.pdf",
+      preview: "/certificates/09-software-engineering-uml.pdf",
+    },
+    {
+      id: "10",
+      title: "Management of Fashion and Luxury Companies",
+      issuer: "Università Bocconi",
+      platform: "Coursera",
+      date: "Dec 4, 2024",
+      category: "Business / Management",
+      url: "https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/10-management-fashion-luxury.pdf",
+      preview: "/certificates/10-management-fashion-luxury.pdf",
     },
   ];
 
@@ -285,85 +350,14 @@ export default function EducationPage() {
             </p>
           </div>
 
-          {/* Exactly 3 Certification Cards: Desktop 3-column, Tablet 2/3, Mobile vertical stack */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certifications.map((cert) => (
-              <div
-                key={cert.title}
-                className="group rounded-2xl bg-brownie text-cream border border-caramel/30 overflow-hidden shadow-md hover:border-caramel hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between"
-              >
-                {/* Upper Portion: Certificate Visual Area */}
-                <div className="relative aspect-[16/10] bg-gradient-to-br from-[#472319] via-brownie to-[#3d1d14] p-6 border-b border-caramel/20 overflow-hidden flex flex-col justify-between">
-                  {/* Subtle technical background watermark */}
-                  <div className="absolute inset-0 bg-[radial-gradient(#C08552_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
-
-                  {/* Top Bar of Certificate Badge */}
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="flex items-center space-x-1.5">
-                      <span className="w-2 h-2 rounded-full bg-caramel" />
-                      <span className="text-[10px] font-mono tracking-widest text-caramel uppercase font-semibold">
-                        VERIFIED CREDENTIAL
-                      </span>
-                    </div>
-                    <span className="text-[11px] font-mono text-cream/70">
-                      {cert.date}
-                    </span>
-                  </div>
-
-                  {/* Certificate Graphical Seal & Emblem */}
-                  <div className="relative z-10 flex flex-col items-center justify-center my-auto text-center space-y-2 py-2">
-                    <div className="w-14 h-14 rounded-2xl bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel group-hover:scale-105 group-hover:border-caramel transition-all duration-200">
-                      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                      </svg>
-                    </div>
-                    <span className="text-xs font-mono font-medium text-cream/70">
-                      ID: {cert.credentialId}
-                    </span>
-                  </div>
-
-                  {/* Certificate Footer Stamp */}
-                  <div className="relative z-10 flex items-center justify-between text-[11px] font-mono text-cream/60 border-t border-caramel/20 pt-2">
-                    <span>{cert.issuer}</span>
-                    <span className="text-caramel font-medium">OFFICIAL PASS</span>
-                  </div>
-                </div>
-
-                {/* Lower Portion: Information & CTA */}
-                <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-6">
-                  <div className="space-y-3">
-                    <span className="text-xs font-mono font-semibold uppercase tracking-wider text-caramel">
-                      {cert.issuer}
-                    </span>
-                    <h3 className="text-xl font-bold text-cream tracking-tight group-hover:text-caramel-light transition-colors">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm text-cream/80 leading-relaxed">
-                      {cert.description}
-                    </p>
-                  </div>
-
-                  {/* CTA Link */}
-                  <div className="pt-4 border-t border-cream/15">
-                    <a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-caramel hover:text-caramel-light transition-colors focus:outline-none focus:underline"
-                    >
-                      <span>View Certificate</span>
-                      <svg
-                        className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
+          {/* Responsive 4-column Grid: Desktop 4, Tablet 2, Mobile 1 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6">
+            {certifications.map((cert, index) => (
+              <InteractiveCertificationCard
+                key={cert.id}
+                cert={cert}
+                index={index}
+              />
             ))}
           </div>
         </section>
