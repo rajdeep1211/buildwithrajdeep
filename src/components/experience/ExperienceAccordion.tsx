@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ExperienceCategory, ExperienceEntry } from "@/data/experienceData";
 
 interface ExperienceAccordionProps {
@@ -8,8 +9,8 @@ interface ExperienceAccordionProps {
 }
 
 export default function ExperienceAccordion({ categories }: ExperienceAccordionProps) {
-  // Default to first non-empty category or null
-  const [expandedId, setExpandedId] = useState<string | null>("volunteering");
+  // Default to all categories compressed/closed
+  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleCategory = (id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -84,9 +85,18 @@ export default function ExperienceAccordion({ categories }: ExperienceAccordionP
               <div className="overflow-hidden">
                 {hasEntries ? (
                   <div className="space-y-8 pt-2">
-                    {category.entries.map((entry) => (
-                      <ExperienceEntryCard key={entry.id} entry={entry} />
-                    ))}
+                    {category.entries.map((entry, idx) =>
+                      category.id === "freelancing" ? (
+                        <FreelanceProjectEntry key={entry.id} entry={entry} />
+                      ) : (
+                        <ExperienceEntryCard
+                          key={entry.id}
+                          entry={entry}
+                          index={idx}
+                          categoryId={category.id}
+                        />
+                      )
+                    )}
                   </div>
                 ) : (
                   /* Tasteful Empty State per Prompt Section 14 */
@@ -124,15 +134,28 @@ export default function ExperienceAccordion({ categories }: ExperienceAccordionP
   );
 }
 
-// Single Experience Entry Component
-function ExperienceEntryCard({ entry }: { entry: ExperienceEntry }) {
+// Single Experience Entry Component (Exact same card styling as Freelancing: bg-white/70, border-caramel/25, shadow-xs, p-6 sm:p-8 rounded-2xl)
+function ExperienceEntryCard({
+  entry,
+  index = 0,
+  categoryId,
+}: {
+  entry: ExperienceEntry;
+  index?: number;
+  categoryId?: string;
+}) {
+  const indexStr = String(index + 1).padStart(2, "0");
+
   return (
     <div className="p-6 sm:p-8 rounded-2xl bg-white/70 border border-caramel/25 shadow-xs space-y-6">
-      {/* Header: Company → Role → Period */}
+      {/* Header: 01/02/03 + Organization → Role → Period/Type */}
       <div className="flex flex-wrap items-start justify-between gap-4 pb-4 border-b border-caramel/15">
         <div className="space-y-1">
           <div className="flex flex-wrap items-center gap-2.5">
-            <h4 className="text-xl sm:text-2xl font-bold text-brownie tracking-tight font-serif">
+            <span className="text-[11px] font-mono font-bold text-caramel bg-caramel/15 px-2 py-0.5 rounded-full border border-caramel/30">
+              {indexStr}
+            </span>
+            <h4 className="text-xl sm:text-2xl font-bold text-brownie tracking-tight font-serif uppercase">
               {entry.company}
             </h4>
             {entry.badge && (
@@ -147,9 +170,16 @@ function ExperienceEntryCard({ entry }: { entry: ExperienceEntry }) {
         </div>
 
         <div className="flex flex-col sm:items-end gap-1">
-          <span className="text-xs font-mono font-semibold px-3 py-1 rounded-md bg-caramel/10 text-coffee border border-caramel/25">
-            {entry.period}
-          </span>
+          {entry.period && (
+            <span className="text-xs font-mono font-semibold px-3 py-1 rounded-md bg-caramel/10 text-coffee border border-caramel/25">
+              {entry.period}
+            </span>
+          )}
+          {entry.projectType && !entry.period && (
+            <span className="text-xs font-mono font-semibold px-3 py-1 rounded-md bg-caramel/10 text-coffee border border-caramel/25">
+              {entry.projectType}
+            </span>
+          )}
           {entry.location && (
             <span className="text-xs text-coffee/70 font-sans">
               {entry.location}
@@ -159,20 +189,23 @@ function ExperienceEntryCard({ entry }: { entry: ExperienceEntry }) {
       </div>
 
       {/* Short Description */}
-      <p className="text-sm sm:text-base text-brownie/90 leading-relaxed">
+      <p className="text-sm sm:text-base text-brownie/90 leading-relaxed font-sans">
         {entry.description}
       </p>
 
-      {/* Key Contributions */}
+      {/* Key Contributions / Achievements */}
       {entry.keyContributions.length > 0 && (
         <div className="space-y-2.5">
           <span className="text-xs font-mono uppercase tracking-wider text-coffee font-semibold block">
-            Key Contributions & Systems Built:
+            {categoryId === "internship" ? "Key Achievements:" : "Key Contributions:"}
           </span>
           <ul className="space-y-2">
             {entry.keyContributions.map((contrib, idx) => (
-              <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-coffee/90 leading-relaxed">
-                <span className="w-1.5 h-1.5 rounded-full bg-caramel mt-1.5 shrink-0" />
+              <li
+                key={idx}
+                className="flex items-start gap-2.5 text-xs sm:text-sm text-coffee/90 leading-relaxed"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-caramel mt-2 shrink-0" />
                 <span>{contrib}</span>
               </li>
             ))}
@@ -181,7 +214,7 @@ function ExperienceEntryCard({ entry }: { entry: ExperienceEntry }) {
       )}
 
       {/* Technologies & Verified Links */}
-      <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-caramel/15">
         {entry.technologies && entry.technologies.length > 0 && (
           <div className="flex flex-wrap gap-1.5">
             {entry.technologies.map((tech) => (
@@ -203,12 +236,13 @@ function ExperienceEntryCard({ entry }: { entry: ExperienceEntry }) {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-caramel hover:text-caramel-dark hover:underline transition-colors"
+                className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-semibold text-caramel hover:text-brownie hover:underline transition-colors"
+                aria-label={`Open ${link.label} in a new tab`}
               >
                 <span>{link.label}</span>
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <span className="text-sm font-sans transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                  ↗
+                </span>
               </a>
             ))}
           </div>
@@ -217,4 +251,121 @@ function ExperienceEntryCard({ entry }: { entry: ExperienceEntry }) {
     </div>
   );
 }
+
+// Specialized Minimal Editorial Entry Component for Freelancing
+function FreelanceProjectEntry({ entry }: { entry: ExperienceEntry }) {
+  return (
+    <div className="p-6 sm:p-8 rounded-2xl bg-white/70 border border-caramel/25 shadow-xs space-y-6">
+      {/* Header: Project Title, Subtitle, and Metadata */}
+      <div className="pb-5 border-b border-caramel/15 space-y-3">
+        <div className="space-y-1">
+          <h4 className="text-2xl sm:text-3xl font-serif font-bold text-brownie tracking-tight uppercase">
+            {entry.company}
+          </h4>
+          {entry.subtitle && (
+            <p className="text-xs sm:text-sm font-mono text-caramel font-semibold tracking-wide">
+              {entry.subtitle}
+            </p>
+          )}
+        </div>
+
+        {/* Metadata row: Role and Project Type */}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm font-mono pt-1">
+          <div className="inline-flex items-center gap-1.5">
+            <span className="text-coffee/60 uppercase tracking-wider font-medium text-[11px] sm:text-xs">
+              ROLE:
+            </span>
+            <span className="text-brownie font-semibold">{entry.role}</span>
+          </div>
+          <span className="text-caramel/40 hidden sm:inline">|</span>
+          <div className="inline-flex items-center gap-1.5">
+            <span className="text-coffee/60 uppercase tracking-wider font-medium text-[11px] sm:text-xs">
+              TYPE:
+            </span>
+            <span className="text-brownie font-semibold">
+              {entry.projectType || "Freelance / Client Project"}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Description paragraph */}
+      <p className="text-sm sm:text-base text-brownie/90 leading-relaxed max-w-3xl font-sans">
+        {entry.description}
+      </p>
+
+      {/* Key Contributions */}
+      {entry.keyContributions.length > 0 && (
+        <div className="space-y-3 pt-1">
+          <span className="text-xs font-mono uppercase tracking-wider text-coffee font-semibold block">
+            Key Contributions:
+          </span>
+          <ul className="space-y-2.5">
+            {entry.keyContributions.map((contrib, idx) => {
+              const parts = contrib.split(" — ");
+              const heading = parts[0];
+              const detail = parts.slice(1).join(" — ");
+              return (
+                <li
+                  key={idx}
+                  className="flex items-start gap-2.5 text-xs sm:text-sm text-coffee/90 leading-relaxed"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-caramel mt-2 shrink-0" />
+                  <span>
+                    {detail ? (
+                      <>
+                        <strong className="font-semibold text-brownie">
+                          {heading}
+                        </strong>
+                        <span className="text-caramel mx-1.5">—</span>
+                        <span>{detail}</span>
+                      </>
+                    ) : (
+                      <span>{contrib}</span>
+                    )}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
+
+      {/* Thin divider separating project details from call-to-action */}
+      <div className="pt-2 border-t border-caramel/20">
+        <div className="p-5 sm:p-6 rounded-xl bg-white/50 border border-caramel/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="space-y-0.5">
+            <p className="text-sm sm:text-base font-serif font-bold text-brownie">
+              Have a project in mind?
+            </p>
+            <p className="text-xs text-coffee/80 font-sans">
+              Open for bespoke full-stack applications, client systems, and technical consulting.
+            </p>
+          </div>
+
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-semibold px-4 sm:px-5 py-2.5 rounded-xl bg-[#FAF5EE] text-brownie border border-caramel/30 shadow-[3px_3px_6px_rgba(94,48,35,0.08),-2px_-2px_5px_rgba(255,255,255,0.9)] hover:shadow-[0_4px_14px_rgba(20,184,166,0.20),2px_2px_4px_rgba(94,48,35,0.06)] hover:border-teal-500/60 hover:text-teal-700 active:shadow-[inset_2px_2px_4px_rgba(94,48,35,0.12),inset_-2px_-2px_4px_rgba(255,255,255,0.7)] active:translate-y-0.5 transition-all duration-200 shrink-0 self-start sm:self-auto cursor-pointer"
+          >
+            <span>Discuss Collaboration</span>
+            <svg
+              className="w-4 h-4 text-caramel group-hover:text-teal-600 group-hover:translate-x-1 transition-all duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 

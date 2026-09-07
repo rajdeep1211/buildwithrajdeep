@@ -47,7 +47,9 @@ export interface ExperienceEntry {
   id: string;
   company: string;
   role: string;
-  period: string;
+  period?: string;
+  projectType?: string;
+  subtitle?: string;
   location?: string;
   badge?: string;
   description: string;
@@ -169,7 +171,29 @@ export const experienceCategories: ExperienceCategory[] = [
     subtitle: "Full-cycle software engineering, AI pipelines, and production team contributions.",
     emptyStateMessage:
       "No formal industry internships registered yet. Currently building production-grade software products, AI systems, and open to high-impact engineering internships.",
-    entries: [],
+    entries: [
+      {
+        id: "era-nexus-international-school",
+        company: "ERA NEXUS INTERNATIONAL SCHOOL",
+        role: "Tech Support Intern",
+        period: "January 2026 — June 2026",
+        description:
+          "Supported the school's day-to-day technology operations while contributing to the development of its digital presence.",
+        keyContributions: [
+          "Resolved day-to-day technical issues across school systems and devices.",
+          "Contributed to the development of the school's official website.",
+          "Improved the reliability and usability of technology used by staff and students.",
+          "Assisted with system setup, troubleshooting, and ongoing IT operations.",
+          "Worked directly with staff to turn technical requirements into practical solutions.",
+        ],
+        technologies: [
+          "Tech Support",
+          "Website Development",
+          "IT Operations",
+          "Troubleshooting",
+        ],
+      },
+    ],
   },
   {
     id: "micro-internships",
@@ -185,25 +209,75 @@ export const experienceCategories: ExperienceCategory[] = [
     subtitle: "Technical leadership, engineering community building, and hackathon organization.",
     entries: [
       {
-        id: "ieee-aess-event-head",
+        id: "phi-research-club",
+        company: "PHI Research Club",
+        role: "Senior Event Head & Coordinator",
+        period: "2025",
+        description:
+          "Served as Senior Event Head & Coordinator at PHI Research Club, contributing to the planning, coordination, and execution of student-focused technical and research-oriented events.",
+        keyContributions: [
+          "Coordinated events and activities involving students and club members.",
+          "Managed event planning, coordination, and execution.",
+          "Worked with teams to organize technical and research-focused initiatives.",
+          "Helped create an engaging environment for students to collaborate, learn, and participate.",
+          "Coordinated responsibilities across teams to ensure smooth event execution.",
+        ],
+        technologies: [
+          "Event Coordination",
+          "Technical Events",
+          "Team Management",
+          "Research Community",
+        ],
+      },
+      {
+        id: "ieee-aess",
         company: "IEEE Aerospace and Electronic Systems Society (AESS)",
-        role: "Event Head & Technical Coordinator",
+        role: "Event Head",
         period: "2023 — 2024",
         location: "Manipal University Jaipur, India",
-        badge: "Technical Leadership",
         description:
-          "Led campus technical initiatives, hackathon coordination, and engineering workshops for student engineers across university departments.",
+          "Worked as Event Head at IEEE AESS, contributing to the organization and execution of technical events, workshops, and student engineering activities.",
         keyContributions: [
-          "Organized and supervised end-to-end technical competitions, robotics workshops, and student engineering events with 200+ participants.",
-          "Won the campus round of the prestigious Smart India Hackathon (SIH) with a dedicated student engineering team.",
-          "Fostered collaborative peer learning in systems architecture, embedded hardware concepts, and modern programming practices.",
-          "Managed event logistics, cross-functional student teams, and technical evaluation panels with campus faculty.",
+          "Organized and coordinated technical events and engineering activities.",
+          "Managed event planning, logistics, and execution.",
+          "Coordinated with student teams and faculty during events.",
+          "Supported technical workshops and student-focused engineering initiatives.",
+          "Helped create opportunities for students to collaborate and explore engineering concepts.",
         ],
-        technologies: ["Event Leadership", "Systems Engineering", "Team Coordination", "Hackathon Organization"],
+        technologies: [
+          "Event Leadership",
+          "Technical Events",
+          "Team Coordination",
+          "Engineering Community",
+        ],
+      },
+      {
+        id: "social-life",
+        company: "Social Life",
+        role: "Founder & CEO",
+        badge: "Community Initiative",
+        projectType: "Community Initiative",
+        subtitle: "Community Builder",
+        description:
+          "Founded Social Life as a community initiative designed to bring strangers together through shared experiences, short trips, workshops, and social gatherings — creating a space where people can meet, connect, and build genuine friendships.",
+        keyContributions: [
+          "Founded and led a community focused on meaningful social connections.",
+          "Organized short trips and experiences designed to bring new people together.",
+          "Created opportunities for strangers to meet, interact, and build friendships.",
+          "Planned small workshops and community activities around shared interests.",
+          "Organized social gatherings and parties to encourage interaction in a relaxed environment.",
+          "Managed the concept, community experience, planning, and overall direction of the initiative.",
+        ],
+        technologies: [
+          "Community Building",
+          "Founder",
+          "Event Management",
+          "Social Experiences",
+        ],
         links: [
           {
-            label: "University Program",
-            url: "https://jaipur.manipal.edu",
+            label: "Instagram",
+            url: "https://www.instagram.com/sociallife.in/",
             type: "website",
           },
         ],
@@ -216,7 +290,25 @@ export const experienceCategories: ExperienceCategory[] = [
     subtitle: "Client-focused custom software development, web applications, and AI integrations.",
     emptyStateMessage:
       "No freelance engagements yet. Currently building, learning, and looking for meaningful opportunities to collaborate on bespoke engineering products.",
-    entries: [],
+    entries: [
+      {
+        id: "uniform-shop-erp",
+        company: "UNIFORM SHOP ERP",
+        role: "Full-Stack Developer",
+        projectType: "Freelance / Client Project",
+        subtitle: "Freelance · Full-Stack Development",
+        description:
+          "A custom ERP system built for a uniform shop to streamline and centralize day-to-day business operations, including inventory, orders, customers, and sales workflows.",
+        keyContributions: [
+          "Inventory Management — managing uniform stock and availability.",
+          "Order Management — handling and organizing customer orders.",
+          "Customer Management — maintaining customer information and records.",
+          "Sales Workflow — streamlining day-to-day sales operations.",
+          "ERP Operations — bringing core shop operations into one centralized system.",
+          "Client Customization — building the system around the client's actual business workflow and requirements.",
+        ],
+      },
+    ],
   },
 ];
 
