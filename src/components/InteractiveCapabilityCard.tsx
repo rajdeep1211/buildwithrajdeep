@@ -61,7 +61,7 @@ export default function InteractiveCapabilityCard({
         transitionDelay: `${index * 85}ms`,
         perspective: 1000,
       }}
-      className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+      className={`h-full flex flex-col transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-7 pointer-events-none"
@@ -87,7 +87,7 @@ export default function InteractiveCapabilityCard({
             ? "transform 100ms ease-out, box-shadow 350ms ease, background-color 350ms ease, border-color 350ms ease"
             : "transform 500ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 350ms ease, background-color 350ms ease, border-color 350ms ease",
         }}
-        className={`group relative overflow-hidden rounded-3xl p-7 sm:p-8 space-y-5 flex flex-col justify-between select-none ${
+        className={`group relative overflow-hidden rounded-3xl p-7 sm:p-8 space-y-5 flex flex-col justify-between select-none h-full w-full ${
           isHovered
             ? "bg-brownie border border-caramel/50 shadow-[0_22px_40px_-10px_rgba(71,35,25,0.32),0_8px_16px_-6px_rgba(71,35,25,0.20)]"
             : "bg-cream-dark/30 border border-caramel/25 shadow-xs"
@@ -113,7 +113,7 @@ export default function InteractiveCapabilityCard({
         />
 
         {/* Card Content with (3) Layered 3D Elevation */}
-        <div className="space-y-4 relative z-10">
+        <div className="space-y-4 relative z-10 flex-1 flex flex-col justify-start">
           {/* (4) Icon badge subtly pops and lifts on hover with color transition */}
           <div
             style={{

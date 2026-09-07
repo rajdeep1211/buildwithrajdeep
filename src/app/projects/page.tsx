@@ -98,7 +98,7 @@ export default function ProjectsPage() {
     switch (item.mockupType) {
       case "canvas":
         return (
-          <div className="w-full h-full bg-[#16120e] p-4 flex flex-col justify-between select-none">
+          <div className="w-full h-full bg-[#241510] p-4 flex flex-col justify-between select-none">
             {/* Window bar */}
             <div className="flex items-center justify-between border-b border-caramel/20 pb-2.5">
               <div className="flex items-center space-x-1.5">
@@ -113,7 +113,7 @@ export default function ProjectsPage() {
             </div>
             {/* Canvas workspace preview */}
             <div className="my-auto py-2 relative flex items-center justify-center">
-              <div className="w-full h-32 rounded-xl bg-[#231a14] border border-caramel/15 relative overflow-hidden flex items-center justify-center">
+              <div className="w-full h-32 rounded-xl bg-[#2e1b14] border border-caramel/20 relative overflow-hidden flex items-center justify-center">
                 {/* Canvas grid pattern */}
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#C0855208_1px,transparent_1px),linear-gradient(to_bottom,#C0855208_1px,transparent_1px)] bg-[size:16px_16px]" />
                 
@@ -147,7 +147,7 @@ export default function ProjectsPage() {
 
       case "erp":
         return (
-          <div className="w-full h-full bg-[#141210] p-4 flex flex-col justify-between select-none">
+          <div className="w-full h-full bg-[#241510] p-4 flex flex-col justify-between select-none">
             {/* Window bar */}
             <div className="flex items-center justify-between border-b border-caramel/20 pb-2.5">
               <div className="flex items-center space-x-1.5">
@@ -162,7 +162,7 @@ export default function ProjectsPage() {
             </div>
             {/* Dashboard and Billing Mockup */}
             <div className="my-auto py-2 grid grid-cols-3 gap-2">
-              <div className="col-span-2 rounded-lg bg-[#221b16] border border-caramel/20 p-2.5 space-y-2">
+              <div className="col-span-2 rounded-lg bg-[#2e1b14] border border-caramel/20 p-2.5 space-y-2">
                 <div className="flex justify-between items-center text-[10px] font-mono text-cream/80">
                   <span>BILLING INVOICE #1042</span>
                   <span className="text-caramel font-semibold">PAID</span>
@@ -184,7 +184,7 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              <div className="col-span-1 rounded-lg bg-[#221b16] border border-caramel/20 p-2.5 space-y-1 flex flex-col justify-between">
+              <div className="col-span-1 rounded-lg bg-[#2e1b14] border border-caramel/20 p-2.5 space-y-1 flex flex-col justify-between">
                 <span className="text-[9px] font-mono text-cream/60">INVENTORY</span>
                 <span className="text-lg font-bold text-caramel leading-tight">1,480</span>
                 <span className="text-[8px] font-mono text-green-400">● 98.4% In Stock</span>
@@ -200,7 +200,7 @@ export default function ProjectsPage() {
 
       case "ai":
         return (
-          <div className="w-full h-full bg-[#120e0c] p-4 flex flex-col justify-between select-none">
+          <div className="w-full h-full bg-[#241510] p-4 flex flex-col justify-between select-none">
             {/* Window bar */}
             <div className="flex items-center justify-between border-b border-caramel/20 pb-2.5">
               <div className="flex items-center space-x-1.5">
@@ -215,7 +215,7 @@ export default function ProjectsPage() {
             </div>
             {/* Neural pipeline mockup */}
             <div className="my-auto py-2 flex items-center justify-center">
-              <div className="w-full rounded-xl bg-[#1e1713] border border-caramel/20 p-3 flex items-center justify-between gap-2">
+              <div className="w-full rounded-xl bg-[#2e1b14] border border-caramel/20 p-3 flex items-center justify-between gap-2">
                 <div className="text-center">
                   <div className="w-7 h-7 rounded-lg bg-caramel/20 border border-caramel/40 flex items-center justify-center text-caramel text-[10px] font-bold mx-auto mb-1">
                     LLM
@@ -255,7 +255,7 @@ export default function ProjectsPage() {
 
       case "algorithms":
         return (
-          <div className="w-full h-full bg-[#13100e] p-4 flex flex-col justify-between select-none font-mono">
+          <div className="w-full h-full bg-[#241510] p-4 flex flex-col justify-between select-none font-mono">
             {/* Window bar */}
             <div className="flex items-center justify-between border-b border-caramel/20 pb-2.5">
               <div className="flex items-center space-x-1.5">
@@ -269,7 +269,7 @@ export default function ProjectsPage() {
               <div className="text-[10px] text-caramel font-medium">TESTS</div>
             </div>
             {/* Terminal code view */}
-            <div className="my-auto py-2 text-[10px] space-y-1 text-cream/80 bg-[#1d1612] p-2.5 rounded-lg border border-caramel/15">
+            <div className="my-auto py-2 text-[10px] space-y-1 text-cream/80 bg-[#2e1b14] p-2.5 rounded-lg border border-caramel/20">
               <div className="text-cream/50">&gt; pytest test_dynamic_programming.py</div>
               <div className="text-green-400">&bull; test_graph_shortest_path PASSED [0.002s]</div>
               <div className="text-green-400">&bull; test_two_pointers_optimized PASSED [0.001s]</div>
@@ -326,59 +326,112 @@ export default function ProjectsPage() {
                 key={item.id}
                 onClick={() => handleCardClick(item.liveUrl)}
                 title={`Launch live demo for ${item.title}`}
-                className="group rounded-3xl bg-[#1a1412] border border-caramel/25 p-5 sm:p-6 shadow-xl hover:border-caramel/70 hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between"
+                className="group relative rounded-3xl p-6 sm:p-7 bg-gradient-to-br from-[#472319] via-brownie to-[#3d1d14] text-cream flex flex-col justify-between overflow-hidden select-none border border-caramel/30 shadow-[0_10px_24px_-4px_rgba(71,35,25,0.26),inset_0_1px_1px_rgba(255,255,255,0.12)] hover:border-caramel/60 hover:shadow-[0_20px_35px_-8px_rgba(71,35,25,0.38),0_8px_16px_-4px_rgba(71,35,25,0.22),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               >
+                {/* Subtle technical background grid watermark */}
+                <div
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(#C08552_1px,transparent_1px)] [background-size:16px_16px] opacity-10 z-0"
+                  aria-hidden="true"
+                />
+
+                {/* Extremely subtle physical surface grain/noise texture */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-3xl opacity-[0.035] mix-blend-overlay z-0"
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+                  }}
+                  aria-hidden="true"
+                />
+
+                {/* Soft cursor-following light reflection / sheen across card surface */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-3xl transition-opacity duration-300 z-0 opacity-0 group-hover:opacity-100"
+                  style={{
+                    background: `radial-gradient(400px circle at 50% 25%, rgba(243, 233, 220, 0.12), transparent 65%)`,
+                  }}
+                  aria-hidden="true"
+                />
+
                 {/* 1. Upper Image / Project UI Preview */}
-                <div className="relative aspect-[16/10] rounded-2xl border border-caramel/20 overflow-hidden mb-6 shadow-inner bg-[#14100e]">
+                <div className="relative aspect-[16/10] rounded-2xl border border-caramel/25 overflow-hidden mb-6 shadow-inner bg-[#241510] z-10">
                   {renderMockupPreview(item)}
                 </div>
 
                 {/* 2. Lower Content Area */}
-                <div className="space-y-4 px-2">
-                  {/* Category Label */}
-                  <span className="text-xs sm:text-sm font-semibold text-caramel block tracking-wide">
-                    {item.category}
-                  </span>
+                <div className="space-y-4 relative z-10 flex-1 flex flex-col justify-between">
+                  <div>
+                    {/* Category Badge matching Certificate Card */}
+                    <div className="mb-3">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold uppercase tracking-wider text-caramel bg-caramel/15 px-3 py-1 rounded-full border border-caramel/30">
+                        <span className="w-1.5 h-1.5 rounded-full bg-caramel" />
+                        {item.category}
+                      </span>
+                    </div>
 
-                  {/* Title & GitHub Icon Row */}
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-snug group-hover:text-caramel-light transition-colors">
-                      {item.title}
-                    </h3>
+                    {/* Title & GitHub Icon Row */}
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="text-2xl sm:text-3xl font-bold text-cream tracking-tight leading-snug group-hover:text-caramel-light transition-colors">
+                        {item.title}
+                      </h3>
 
-                    {/* Dedicated GitHub Icon Button */}
-                    <a
-                      href={item.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                      }}
-                      title={`View ${item.title} source code on GitHub`}
-                      className="p-2.5 rounded-xl bg-white/5 hover:bg-caramel text-white hover:text-cream transition-all duration-200 focus:outline-none flex-shrink-0"
-                      aria-label={`View ${item.title} on GitHub`}
-                    >
-                      <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                      </svg>
-                    </a>
+                      {/* Dedicated GitHub Icon Button */}
+                      <a
+                        href={item.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                        }}
+                        title={`View ${item.title} source code on GitHub`}
+                        className="p-2.5 rounded-xl bg-caramel/15 hover:bg-caramel text-cream hover:text-cream border border-caramel/30 transition-all duration-200 focus:outline-none flex-shrink-0 shadow-2xs"
+                        aria-label={`View ${item.title} on GitHub`}
+                      >
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    {/* Short Description */}
+                    <p className="text-sm sm:text-base text-cream/80 leading-relaxed font-sans mt-3">
+                      {item.description}
+                    </p>
+
+                    {/* Tech Stack Pills */}
+                    <div className="flex flex-wrap gap-1.5 pt-4">
+                      {item.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-caramel/10 text-caramel border border-caramel/25"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Short Description */}
-                  <p className="text-sm sm:text-base text-cream/75 leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  {/* Tech Stack Pills */}
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {item.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-white/5 text-caramel border border-caramel/20"
+                  {/* Bottom Action Row matching Certificate Card */}
+                  <div className="pt-4 border-t border-caramel/20 flex items-center justify-between mt-6">
+                    <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-caramel group-hover:text-caramel-light transition-colors">
+                      <span>Launch Live Demo</span>
+                      <svg
+                        className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        {t}
-                      </span>
-                    ))}
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </div>
+
+                    <span className="text-[11px] font-mono text-cream/40 uppercase tracking-wider">
+                      #{item.id}
+                    </span>
                   </div>
                 </div>
               </div>

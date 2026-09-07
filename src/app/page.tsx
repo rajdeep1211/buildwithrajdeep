@@ -81,7 +81,7 @@ export default function HomePage() {
     {
       title: "Product Building",
       description:
-        "Turning ideas into usable, practical software products.",
+        "Turning ideas into usable, scalable, and practical software products.",
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
@@ -354,7 +354,7 @@ export default function HomePage() {
             {/* 6 Capabilities Cards Grid (3 Columns, 2 Rows) */}
             <div
               ref={capabilitiesRef}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
             >
               {capabilities.map((item, index) => (
                 <InteractiveCapabilityCard

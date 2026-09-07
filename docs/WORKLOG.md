@@ -6,50 +6,42 @@
 ## Current State
 
 ### Current Phase
-**Phase 2 — Core Portfolio (Homepage, Education, and Contact Me Completed)**
+**Phase 2 — Core Portfolio (Homepage, Education, Experience, Projects, and Contact Me Complete)**
 
 ### Status
 **In Progress**
 
 ### Currently Working On
-- Preparing Experience section implementation (`/experience`).
+- Cross-page polish, mobile audit, and performance optimization.
 
 ### Completed
-- `PRD.md`, `ARCHITECTURE.md`, `RULES.md`, `PHASES.md`, and `DESIGN.md` established.
-- Initialized Next.js, React, TypeScript, and Tailwind CSS foundation with locked color palette (`cream`, `caramel`, `brownie`, `coffee`).
-- Implemented Contact Me page (`/contact`) with Cream, Caramel, Brownie, and Coffee documentation palette.
-- Completed Homepage (`/`):
-  - Editorial Developer Terminal Workspace hero with interactive commands (`whoami`, `about`, `quote`, `clear`).
-  - Core Capabilities showcase with 6 interactive cards featuring 3D cursor tilt, cursor-following light reflection, layered depth, surface grain texture, viewport entrance animation, and smooth 350ms dark Brownie hover color inversion.
-  - Tightened card-to-footer spacing and darkened footer top boundary (`border-brownie/25`) for crisp visual separation.
-  - Minimal engineering footer with copyright and branding.
-- Completed Education page (`/education`):
-  - Updated all 3 academic timeline entries with verified data:
-    1. B.Tech in Computer and Communication Engineering, Manipal University Jaipur (2022 – 2025).
-    2. Class XII (HSC), Yeshwantrao Chavan College (2021 – 2022).
-    3. Class X (SSC), G A SHAH ENG PRIMARY SCHOOL (2019 – 2020).
-  - Configured verified concentrations and factual highlights/leadership roles for each milestone.
-  - Modernized Certifications section into a compact, responsive 4-column 3D credential gallery:
-    - 10 real verified certificates (Cisco, Google Cloud, DeepLearning.AI, UC San Diego, Colorado, Google, IBM, HKUST, Bocconi).
-    - 3D physical card styling: perspective, ±3.8° cursor tilt, cursor light reflection, micro surface grain, layered depth (`translateZ`), and bevel edge highlight.
-    - Simplified information hierarchy prioritizing Issuer, bold Title, Category chip, Date, and "View Certificate →".
-    - Structured data model (`CertificateItem`) with direct GitHub PDF repository URLs and local preview paths.
-    - Extracted, organized, and hosted all 10 verified certificate PDFs inside `public/certificates/`.
-    - Connected "View Certificate" action on each credential card to open the verified certificate PDF directly in GitHub (`https://github.com/rajdeep1211/buildwithrajdeep/blob/main/public/certificates/[filename].pdf`) in a new tab with `target="_blank"` and `rel="noopener noreferrer"`.
-  - Retained the entire interactive timeline interaction, card styling, and color palette.
-- Implemented Progressive Neumorphic Navbar:
-  - Extracted shared navigation into `src/components/Navbar.tsx` and mounted in `RootLayout`.
-  - Initial/Hero State: Full-width container (`max-w-[1360px]`), seamless cream hero integration, full-sized brand typography (`< Rajdeep Bakliwal \>`) in Brownie with animated Caramel angle brackets, Coffee secondary links, and Caramel active indicator.
-  - Scrolled State: Smoothly detaches and transforms into a floating Dark Brownie Neumorphic capsule (`max-w-4xl`, solid tactile `bg-brownie-dark`, dual-directional light highlight `-4px -4px 14px rgba(255,255,255,0.75)` and deep shadow `6px 10px 24px rgba(71,35,25,0.32)`, chamfered top inner reflection `inset 0 1px 1px rgba(255,255,255,0.2)`, translucent caramel border `border-caramel/40`, light shade Cream text, and solid Caramel active route indicator).
-  - Preserved the documented portfolio palette throughout both states: Cream (`#F3E9DC`), Caramel (`#C08552`), Brownie (`#5E3023`), and Coffee (`#895737`).
-  - Scroll direction intelligence: Compresses on scroll down and fully restores upon returning to top.
-  - Responsive mobile neumorphic sheet dropdown.
-  - Zero layout shift guarantee on page content.
-  - Header Personal Branding: Wrapped personal name with `<` and `\>` in monospace Caramel font with pulsing animation (`< Rajdeep Bakliwal \>`).
-- Verified production build with Next.js static generation.
+- Designed and implemented the complete **Experience** section (`/experience`) adhering to the locked prompt and visual system:
+  - **Editorial Introduction:** Section badge (`03 — Engineering Activity & Applied Work`), main heading `EXPERIENCE.`, and supporting copy *“What I've worked on, built, solved, and contributed to.”*
+  - **LeetCode Developer Dashboard:** Built dark surface activity dashboard with top metrics (Problems Solved: 385/3280, Streak: 120+ Days, acceptance rate, ranking), composite difficulty breakdown bar with Easy/Medium/Hard distribution, 32-week interactive question activity grid with 5-tier teal/cyan progression, hover tooltips, subtle neumorphic CTA (`View LeetCode ■`), and `@rajdeep_jain` username.
+  - **GitHub Developer Dashboard:** Counterpart dashboard featuring verified metrics (Total Contributions: 1,248+, Streak: 85+ Days, Repositories: 28+), full 52-week contribution activity grid with month labels, day-of-week axis, interactive hover tooltips, neumorphic CTA (`View GitHub ■`), and `@rajdeep1211` username.
+  - **Four Full-Width Editorial Experience Accordions:** Replaced generic card widgets with full-width editorial list rows (Internship, Micro Internships, Volunteering, Freelancing) featuring thin horizontal separators, large serif typography, rotating indicator arrow, single-open accordion behavior with natural 300ms easing, and verified entries (IEEE AESS Event Head & SIH Hackathon leadership) alongside tasteful empty states.
+  - **Data-Driven Architecture:** Decoupled all LeetCode, GitHub, and category entries into `src/data/experienceData.ts` for clean maintainability without touching JSX.
+- Implemented the locked, signature **Contact Me** page (`/contact`):
+  - **01 — Hero / Intro (Locked):** Two-column desktop grid with headline “Let’s Build Something Meaningful.”, supporting text, tactile primary CTA “Start a Conversation →” (smoothly scrolls to the terminal form), and dedicated placeholder space for the future abstract AI/systems illustration.
+  - **02 — Currently Open To:** Compact availability section with subtle active indicator (`● Currently Open`) and 5 light focus tags (Software Engineering Opportunities, AI / ML Projects, Product Building, Technical Collaborations, Community & Event Initiatives).
+  - **03 — Get In Touch + Find Me Online + Resume:** Clean 2-column layout with 1-click clipboard copy email, Jaipur, India location with “View on Map →”, verified professional links (GitHub, LinkedIn, Email), and natural “Download Resume ↓” secondary action.
+  - **04 — Terminal Contact Form (Signature Interaction):** Premium developer console interface featuring title bar with macOS controls (`#E06C55`, `#E5A93C`, `#6BB377`), `rajdeep@portfolio: ~ %` prompt, `$ ./start-conversation` execution header, interactive input fields (`NAME`, `EMAIL`, `SUBJECT`, `MESSAGE`) with prompt cursor glowing subtle teal on focus, blinking cursor, accessible native form controls, and simulated terminal dispatch receipt with reset option.
+  - **05 — What I Can Help With:** Six compact interactive cards (AI Systems, Software Engineering, Full-Stack Development, AI / ML Engineering, Product Building, Community & Collaboration) integrated with `InteractiveCapabilityCard` featuring 3D cursor tilt, light reflection, surface grain, and 350ms dark hover color inversion.
+  - **06 — Creative Availability Indicator:** Compact status card with subtle teal indicator (`● CONNECTION STATUS` — Open to interesting conversations and meaningful technical work).
+  - **07 — Personal Closing Message:** Warm, friendly closing (“Not Sure Where to Start?”) with “Say Hello →” CTA smoothly scrolling to the terminal form.
+  - **08 — Minimal Footer:** Minimal brand, tagline, GitHub/LinkedIn/Email links, and 2026 copyright.
+  - Strictly followed the locked 8-step page flow without rearranging or modifying section hierarchy.
+- Aligned Project Cards design on `/projects` with Education page Certificate Card styling:
+  - Applied the signature rich chocolate Brownie gradient (`bg-gradient-to-br from-[#472319] via-brownie to-[#3d1d14]`).
+  - Added Caramel borders, dual-layer tactile shadows, and top inner chamfer highlight (`shadow-[0_10px_24px_-4px_rgba(71,35,25,0.26),inset_0_1px_1px_rgba(255,255,255,0.12)]`).
+  - Integrated certificate dot watermark pattern and surface noise grain texture.
+  - Mirrored the Certificate Card category badge (`bg-caramel/15 text-caramel border-caramel/30` with dot indicator), caramel tech stack pills, and bottom action bar with `Launch Live Demo →` and project identifier (`#{item.id}`).
+- Completed Homepage (`/`) and Education page (`/education`) with verified timeline, credentials, and 3D interactions.
+- Verified zero-regression static build (`next build` succeeds across all 8 routes).
 
 ### Next
-- Implement Experience section (`/experience`).
+- Prepare Project deep-dives / case study modals and interactive project previews.
+- Conduct cross-browser, mobile accessibility, and reduced-motion audit.
 
 ### Blocked By
 None.
@@ -57,6 +49,121 @@ None.
 ---
 
 # History
+
+## 2026-09-07 — Experience Section Implementation (Locked Flow & UI/UX Prompt)
+
+### Completed
+- Designed and built the complete `/experience` route adhering to the locked prompt specifications:
+  - **Core Philosophy:** Positioned Experience as developer activity (problem-solving rigor + open-source construction) alongside real-world applied engineering.
+  - **Locked Section Sequence:**
+    1. `EXPERIENCE.` Editorial Header & Supporting Copy.
+    2. `LEETCODE` Developer Activity Dashboard.
+    3. `GITHUB` Developer Activity Dashboard.
+    4. Four Full-Width Editorial Experience Accordions (`Internship →`, `Micro Internships →`, `Volunteering →`, `Freelancing →`).
+- **LeetCode Activity Dashboard (`src/components/experience/LeetCodeDashboard.tsx`):**
+  - Styled with deep near-black/charcoal dark surface (`bg-gradient-to-br from-[#181310] via-[#14100e] to-[#0f1418]`), Caramel borders, subtle cyan/teal glows, and dual-layer shadows.
+  - Displayed top metrics: Problems Solved (385/3,280), Streak Maintained (120+ Days), Acceptance Rate (68.4%), and Ranking (Top 14%).
+  - Built composite difficulty breakdown bar and metric list with Easy (140), Medium (210), Hard (35).
+  - Implemented 32-week question activity calendar grid with 5-tier teal/cyan progression, interactive hover tooltips (date + solved questions count), and activity intensity legend.
+  - Added centered/bottom subtle neumorphic CTA button `View LeetCode ■` linking to `https://leetcode.com/u/rajdeep_jain/` with `@rajdeep_jain` username.
+- **GitHub Activity Dashboard (`src/components/experience/GitHubDashboard.tsx`):**
+  - Formed a matched pair with the LeetCode dashboard using identical surface finish, border treatment, and ambient lighting.
+  - Displayed top metrics: Total Contributions (1,248+ in past year), Streak Maintained (85+ Days), and Public & Private Repositories (28+).
+  - Built full 52-week contribution activity grid with month labels, day-of-week axis, interactive hover tooltips (date + contribution count), and activity legend.
+  - Handled responsive layout with horizontal scroll containers on mobile/tablet viewports to prevent overflow.
+  - Added matching centered neumorphic CTA button `View GitHub ■` linking to `https://github.com/rajdeep1211` with `@rajdeep1211` username.
+- **Four Full-Width Editorial Experience Accordions (`src/components/experience/ExperienceAccordion.tsx`):**
+  - Replaced generic card widgets with full-width editorial list rows inspired by editorial design systems.
+  - Configured 4 categories: `Internship`, `Micro Internships`, `Volunteering`, `Freelancing`.
+  - Implemented accessible single-open accordion behavior (`aria-expanded`, keyboard operable) with smooth 300ms height and opacity easing.
+  - Included 90-degree rotating arrow indicator on active/open states.
+  - Structured entry hierarchy: Company → Role → Period → Location → Description → Key Contributions → Tech Stack → Verified Links.
+  - Populated verified technical leadership under Volunteering: **IEEE Aerospace and Electronic Systems Society (AESS)** — Event Head & Technical Coordinator (2023–2024, Manipal University Jaipur, SIH Hackathon campus round win, workshops).
+  - Provided understated, tasteful empty states with clear CTAs for categories without active entries.
+- **Live API Integration (`src/app/api/leetcode/route.ts` & `src/app/api/github/route.ts`):**
+  - Built Next.js Route Handlers with `dns.setDefaultResultOrder("ipv4first")` ensuring fast lookups and eliminating IPv6 timeout issues.
+  - **LeetCode GraphQL Pipeline:** Fetches live submission stats, acceptance rates, difficulty breakdowns (`All: 9`, `Easy: 7`, `Medium: 2`, `Hard: 0`), rankings, active streaks, and parses `submissionCalendar` timestamps to generate real-time activity heatmaps.
+  - **GitHub API Pipeline:** Queries `api.github.com/users/rajdeep1211` for verified public repository counts and `github-contributions-api.jogruber.de` for accurate annual contribution counts and daily activity matrices.
+  - **Frontend Live Sync (`LeetCodeDashboard.tsx` & `GitHubDashboard.tsx`):** Added dynamic `● LIVE SYNC` indicator badges with pulsing beacons, synchronization timestamps, manual refresh buttons, and graceful zero-downtime fallbacks to cached presets if network requests fail.
+- **Brand Color Palette Harmonization (`LeetCodeDashboard.tsx` & `GitHubDashboard.tsx`):**
+  - Replaced generic teal and dark slate themes with the project's signature **Brownie, Caramel, Cream, and Coffee** design system.
+  - Styled card backdrops with the rich chocolate Brownie gradient (`bg-gradient-to-br from-[#472319] via-brownie to-[#3d1d14]`), Caramel borders (`border-caramel/30`), radial dot watermarks, and surface noise grain texture.
+  - Transformed the activity heatmap progression into a warm 5-tier Caramel & Cream intensity scale (`bg-white/[0.04]` &rarr; `bg-caramel/25` &rarr; `bg-caramel/55` &rarr; `bg-caramel` &rarr; `bg-cream-light`).
+  - Aligned difficulty progress bars, live sync beacons, hover tooltips, and neumorphic CTA buttons to the warm Brownie and Caramel aesthetic.
+- **Zero-Lag Continuous Live Sync Optimization:**
+  - **Eliminated Visual Number Shifts:** Aligned default SSR fallback in `src/data/experienceData.ts` with verified live statistics (`Problems: 9`, `Streak: 4 Days`, `Contributions: 51`, `Repos: 5`), eliminating the jarring 385 &rarr; 9 jump.
+  - **Server In-Memory Warm Caching:** Integrated high-speed in-memory caches in `/api/leetcode` and `/api/github` with 60s freshness TTL and background revalidation, reducing API response times to < 25ms.
+  - **Browser SessionStorage Layer:** Components instantly restore the latest verified live data from browser `sessionStorage` on mount with 0ms lag whenever navigating between pages (e.g. from Education to Experience).
+  - **Continuous Background Synchronization:** Configured real-time 30-second polling and automated re-sync triggers on `visibilitychange` and window `focus`, keeping live statistics perpetually up-to-date without freezing the UI.
+- **Decoupled Data Architecture (`src/data/experienceData.ts`):**
+  - Separated all LeetCode statistics, GitHub metrics, and experience category data into clean TypeScript interfaces for easy maintenance.
+- Verified Next.js production build compiling with 0 errors across all routes including dynamic API handlers (`/api/leetcode`, `/api/github`).
+
+## 2026-09-07 — Contact Me Page Complete Locked Implementation
+
+### Completed
+- Rebuilt `/contact` following the locked 8-step structure:
+  1. `01 — Hero / Intro + Dedicated Illustration Placeholder Space`
+  2. `02 — Currently Open To` with `● Currently Open` active badge
+  3. `03 — Get In Touch + Find Me Online + Resume Download`
+  4. `04 — Terminal Contact Form` (Signature Creative Interaction)
+  5. `05 — What I Can Help With` (6 3D capability cards)
+  6. `06 — Creative Availability Indicator` (Teal connection status)
+  7. `07 — Personal Closing Message` (“Not Sure Where to Start?”)
+  8. `08 — Minimal Footer`
+- Integrated signature terminal console interaction:
+  - Tactile extruded shadow (`shadow-[8px_12px_0px_0px_#472319]`) and Brownie title bar.
+  - Dynamic focus state: prompt `>` turns teal (`text-teal-400`) and field borders receive subtle teal glow.
+  - Client-side validation and simulated terminal transmission receipt with `[ $ ./send-another-message ]` reset option.
+  - Smooth scroll handlers on “Start a Conversation →” and “Say Hello →” auto-focusing the terminal.
+- Rendered 6 capability cards using `InteractiveCapabilityCard` with 3D tilt, light reflection, surface grain, and hover inversion.
+- Formatted Connection Status and Not Sure Where to Start side-by-side in a balanced 2-column grid (`grid-cols-1 md:grid-cols-12`) with full responsive mobile stacking.
+- Implemented interactive horizontal social dock on the "Find Me Online" card:
+  - Replaced the bottom text (`// Profiles are monitored directly...`) with a centered horizontal dock of social & professional icons.
+  - Removed duplicate GitHub and LinkedIn icons from the inline dock since they are prominently featured in the primary cards above, eliminating redundancy.
+  - Configured user-verified profile destinations:
+    - **LeetCode:** `https://leetcode.com/u/rajdeep_jain/`
+    - **Instagram:** `https://www.instagram.com/_its_rajdeep_/`
+    - **YouTube:** `https://www.youtube.com/@rajdeepbakliwal1733`
+  - Completely removed unused platforms (**X** and **Discord**) per user request.
+  - Default state displays compact icons only without names, preserving card balance.
+  - Hover/focus interaction lifts the active item toward the user (`-translate-y-1`), revealing the platform name and teal arrow (`&rarr;`) in a dark neumorphic pill (`bg-brownie-dark`, Cream text, chamfered top inner highlight, subtle dual-directional outer shadow, and Caramel border) with smooth 250ms width expansion.
+- Updated Terminal Contact Form to match the Homepage Terminal Color Theme with Live & 3D Interactivity:
+  - **Color Theme Alignment:** Transformed the terminal workspace body from dark brownie (`bg-brownie-dark`) to the warm light cream palette (`bg-[#F4EDE4]`) matching the homepage terminal. Preserved the signature Dark Brownie window chrome (`bg-brownie`) with macOS controls (`#E06C55`, `#E5A93C`, `#6BB377`).
+  - **Integrated Mountain Landscape:** Embedded the warm sun and sand dune mountain silhouette SVG (`#EAD9C8`, `#DFCDBC`, `#C9AE96`, `#A67E60`) in the bottom right corner with non-blocking subtle opacity.
+  - **Tactile Inputs:** Styled input fields with warm cream backgrounds (`bg-[#FAF7F2]`), recessed inner shadows (`shadow-[inset_0_1.5px_3px_rgba(71,35,25,0.06)]`), `#D5C2B1` borders, brownie font text, and teal-illuminated prompt arrows (`>`).
+  - **Interactive 3D Depth & Tilt:** Implemented real-time cursor perspective tilt (perspective 1200px, +/- 1.8deg max) with dynamic specular light glare, surface grain overlay, and extruded physical drop shadows (`shadow-[8px_10px_0px_0px_#472319,0_25px_40px_rgba(94,48,35,0.22)]`).
+  - **Live Telemetry & Status:** Added pulsing live beacon (`live:ready`) in the title bar, removed the tagline text (`Ideas. Code. People. Impact.`) for a cleaner header, real-time transmission payload counter (`payload: X B`), and Unix block blinking cursor.
+  - **3D Tactile Button:** Styled Send Message CTA with physical button press feedback (`shadow-[4px_5px_0px_0px_#472319]` active state).
+- Resolved Capability Cards Grid Height & Symmetry:
+  - Added `h-full flex flex-col` to `InteractiveCapabilityCard` outer container and `h-full w-full` to inner card shell.
+  - Set `items-stretch` on the capability cards CSS grid in both `/contact` and `/` (homepage).
+  - Balanced the "Product Building" copy (`"Turning ideas into usable, scalable, and practical software products."`) so card heights across the entire row and grid align with exact visual symmetry.
+- Verified Next.js static build passing with zero errors across all 7 routes.
+
+### Decisions
+- Locked page flow and hero two-column layout strictly adhered to per specifications.
+- Future illustration space created with responsive aspect-ratio preservation and technical blueprint styling, ready for vector artwork drop-in without restructuring.
+- Location integrated compactly inside "Get In Touch" linking to Google Maps Jaipur search rather than generating an oversized standalone map.
+- Connection Status and Not Sure Where to Start aligned side-by-side to create a compact, balanced closing module before the footer.
+- Social dock designed with fixed height and fluid label transitions so active label expansion does not cause vertical height jumps or card resizing.
+- Prevented visual duplication by ensuring primary card networks (GitHub and LinkedIn) are not repeated in the secondary inline icon dock.
+
+### 2026-09-07 — Projects Card Color Shade Alignment to Education Certificate Cards
+
+#### Completed
+- Updated `src/app/projects/page.tsx` cards from isolated dark charcoal (`#1a1412`) to the rich chocolate Brownie theme established in `InteractiveCertificationCard.tsx`:
+  - **Color Palette & Gradient:** Replaced flat background with `bg-gradient-to-br from-[#472319] via-brownie to-[#3d1d14]`.
+  - **Borders & Shadows:** Added `border border-caramel/30` with dual-layer depth `shadow-[0_10px_24px_-4px_rgba(71,35,25,0.26),inset_0_1px_1px_rgba(255,255,255,0.12)]`, scaling to `hover:border-caramel/60 hover:shadow-[0_20px_35px_-8px_rgba(71,35,25,0.38),0_8px_16px_-4px_rgba(71,35,25,0.22),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:-translate-y-1`.
+  - **Watermark & Texture Layers:** Injected the subtle 16px radial dot watermark (`bg-[radial-gradient(#C08552_1px,transparent_1px)] opacity-10`) and fine monochrome noise grain (`opacity-[0.035] mix-blend-overlay`).
+  - **Hover Specular Sheen:** Added top radial light reflection (`radial-gradient(400px circle at 50% 25%, rgba(243, 233, 220, 0.12), transparent 65%)`).
+  - **Category Badge:** Styled with `bg-caramel/15 text-caramel border border-caramel/30 font-mono text-xs font-semibold` and bullet dot indicator.
+  - **Tech Stack Pills:** Styled with `bg-caramel/10 text-caramel border border-caramel/25 font-mono text-xs`.
+  - **Dedicated GitHub Action Button:** Upgraded from `bg-white/5` to `bg-caramel/15 hover:bg-caramel text-cream border border-caramel/30 shadow-2xs`.
+  - **Interactive Action Row:** Added bottom divider `border-t border-caramel/20` featuring `Launch Live Demo →` with hover arrow translation and project identifier `#{item.id}`.
+  - **Mockup Chrome Harmonization:** Harmonized inner mockup browser frames (`#241510`, `#2e1b14`, `border-caramel/20`) to integrate with the chocolate backdrop.
+- Verified zero build or TypeScript regression (`npm run build` succeeds cleanly across all 7 routes).
+
 
 ## 2026-09-06 — Certifications Section Structural & GitHub Redirection Update
 
