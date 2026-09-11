@@ -134,6 +134,21 @@ export default function ExperienceAccordion({ categories }: ExperienceAccordionP
   );
 }
 
+// Helper to render markdown **bold** text within bullet points
+function renderFormattedContent(text: string) {
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-brownie">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 // Single Experience Entry Component (Exact same card styling as Freelancing: bg-white/70, border-caramel/25, shadow-xs, p-6 sm:p-8 rounded-2xl)
 function ExperienceEntryCard({
   entry,
@@ -188,16 +203,20 @@ function ExperienceEntryCard({
         </div>
       </div>
 
-      {/* Short Description */}
-      <p className="text-sm sm:text-base text-brownie/90 leading-relaxed font-sans">
-        {entry.description}
-      </p>
+      {/* Short Description (optional) */}
+      {entry.description && (
+        <p className="text-sm sm:text-base text-brownie/90 leading-relaxed font-sans">
+          {entry.description}
+        </p>
+      )}
 
       {/* Key Contributions / Achievements */}
       {entry.keyContributions.length > 0 && (
         <div className="space-y-2.5">
           <span className="text-xs font-mono uppercase tracking-wider text-coffee font-semibold block">
-            {categoryId === "internship" ? "Key Achievements:" : "Key Contributions:"}
+            {categoryId === "internship" || categoryId === "micro-internships"
+              ? "Key Achievements:"
+              : "Key Contributions:"}
           </span>
           <ul className="space-y-2">
             {entry.keyContributions.map((contrib, idx) => (
@@ -206,7 +225,7 @@ function ExperienceEntryCard({
                 className="flex items-start gap-2.5 text-xs sm:text-sm text-coffee/90 leading-relaxed"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-caramel mt-2 shrink-0" />
-                <span>{contrib}</span>
+                <span>{renderFormattedContent(contrib)}</span>
               </li>
             ))}
           </ul>
@@ -230,21 +249,52 @@ function ExperienceEntryCard({
 
         {entry.links && entry.links.length > 0 && (
           <div className="flex items-center gap-3">
-            {entry.links.map((link, idx) => (
-              <a
-                key={idx}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-semibold text-caramel hover:text-brownie hover:underline transition-colors"
-                aria-label={`Open ${link.label} in a new tab`}
-              >
-                <span>{link.label}</span>
-                <span className="text-sm font-sans transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                  ↗
-                </span>
-              </a>
-            ))}
+            {entry.links.map((link, idx) => {
+              if (link.type === "certificate") {
+                return (
+                  <a
+                    key={idx}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2 text-xs font-mono font-semibold px-3.5 py-1.5 sm:py-2 rounded-xl bg-[#FAF5EE] text-brownie border border-caramel/30 shadow-[2px_2px_5px_rgba(94,48,35,0.06),-1px_-1px_4px_rgba(255,255,255,0.8)] hover:shadow-[0_4px_14px_rgba(20,184,166,0.22),1px_1px_3px_rgba(94,48,35,0.05)] hover:border-teal-500/60 hover:text-teal-700 active:shadow-[inset_2px_2px_4px_rgba(94,48,35,0.12),inset_-2px_-2px_4px_rgba(255,255,255,0.7)] active:translate-y-0.5 transition-all duration-200 shrink-0 cursor-pointer"
+                    aria-label={`View Certificate for ${entry.company} (opens in a new tab)`}
+                  >
+                    <span>{link.label}</span>
+                    <svg
+                      className="w-3.5 h-3.5 text-caramel group-hover:text-teal-600 transition-colors"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                );
+              }
+
+              return (
+                <a
+                  key={idx}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-semibold text-caramel hover:text-brownie hover:underline transition-colors"
+                  aria-label={`Open ${link.label} in a new tab`}
+                >
+                  <span>{link.label}</span>
+                  <span className="text-sm font-sans transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+                    ↗
+                  </span>
+                </a>
+              );
+            })}
           </div>
         )}
       </div>

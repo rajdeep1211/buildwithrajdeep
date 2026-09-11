@@ -52,7 +52,7 @@ export interface ExperienceEntry {
   subtitle?: string;
   location?: string;
   badge?: string;
-  description: string;
+  description?: string;
   keyContributions: string[];
   technologies?: string[];
   links?: ExperienceLink[];
@@ -201,7 +201,35 @@ export const experienceCategories: ExperienceCategory[] = [
     subtitle: "Short-term targeted technical sprints, industry simulations, and modular engineering sprints.",
     emptyStateMessage:
       "No external micro-internships on record. Actively participating in agile open-source project sprints and collaborative technical builds.",
-    entries: [],
+    entries: [
+      {
+        id: "tata-iq-virtual-internship",
+        company: "Tata iQ (via Forage)",
+        role: "Data Analytics & AI Virtual Intern",
+        period: "September 2026",
+        location: "Remote",
+        badge: "Virtual Experience",
+        keyContributions: [
+          "Conducted exploratory data analysis on a **150,000+ record financial dataset**, identifying credit utilization and payment delays as key delinquency indicators.",
+          "Designed a **predictive modeling approach** using classification techniques, data imputation, class-imbalance handling, and evaluation metrics such as AUC-ROC, Recall, and F1-score.",
+          "Designed an **agentic AI collections framework** with dynamic risk tiering, real-time data inputs, and automated omnichannel intervention strategies.",
+          "Incorporated **Responsible AI principles**, including model explainability, fairness monitoring, and compliance considerations.",
+        ],
+        technologies: [
+          "Data Analytics",
+          "Predictive Modeling",
+          "Agentic AI",
+          "Responsible AI",
+        ],
+        links: [
+          {
+            label: "View Certificate",
+            url: "/certificates/tata-iq-genai-data-analytics.pdf",
+            type: "certificate",
+          },
+        ],
+      },
+    ],
   },
   {
     id: "volunteering",

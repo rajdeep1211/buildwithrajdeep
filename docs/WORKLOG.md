@@ -18,7 +18,7 @@
   - **Projects (`/projects`):** Project showcase cards styled with rich Brownie gradient, tactile dual-layer shadows, tech pills, and live demo / GitHub links.
   - **Experience (`/experience`):** Real-time synced LeetCode & GitHub developer activity dashboards (with 5-tier intensity maps and fast in-memory caching), and 4 full-width editorial accordions:
     - *Internship:* ERA Nexus International School (Tech Support Intern).
-    - *Micro Internships:* Clean pipeline status.
+    - *Micro Internships:* Tata iQ (via Forage) Data Analytics & AI Virtual Intern with achievement bullets & certificate CTA.
     - *Volunteering:* PHI Research Club, IEEE AESS, and Social Life (Community Initiative & Instagram link).
     - *Freelancing:* Uniform Shop ERP client project with key contributions and tactile neumorphic collaboration CTA.
     - Harmonized card shell (`bg-white/70`, `border-caramel/25`, `shadow-xs`) and compressed default state on page load.
@@ -63,6 +63,32 @@ None.
 ---
 
 # History
+
+## 2026-09-11 — Experience Section Micro-Internship Entry Addition (Tata iQ via Forage)
+
+### Completed
+- **Targeted Micro-Internship Experience Entry Addition (`src/data/experienceData.ts` & `src/components/experience/ExperienceAccordion.tsx`):**
+  - Added authentic micro-internship entry for Tata iQ (via Forage) under the Micro Internships category on `/experience`, while keeping Internship, Volunteering, Freelancing, LeetCode, and GitHub dashboards completely intact.
+  - **Company / Organization:** `Tata iQ (via Forage)`
+  - **Position / Role:** `Data Analytics & AI Virtual Intern`
+  - **Period & Location:** `September 2026` | `Remote` (verified from certificate: September 10, 2026)
+  - **Badge:** `Virtual Experience`
+  - **Certificate File & Verification:**
+    - Saved authentic certificate PDF to `public/certificates/tata-iq-genai-data-analytics.pdf` (115 KB).
+    - Enrolment Verification Code: `6aa0481239a1f8e6660c459f` | User Verification Code: `DYqtAAapS457kG7jP`.
+    - Linked directly in CTA: `/certificates/tata-iq-genai-data-analytics.pdf`.
+  - **Key Achievements (4 concise bullets):**
+    - Conducted exploratory data analysis on a **150,000+ record financial dataset**, identifying credit utilization and payment delays as key delinquency indicators.
+    - Designed a **predictive modeling approach** using classification techniques, data imputation, class-imbalance handling, and evaluation metrics such as AUC-ROC, Recall, and F1-score.
+    - Designed an **agentic AI collections framework** with dynamic risk tiering, real-time data inputs, and automated omnichannel intervention strategies.
+    - Incorporated **Responsible AI principles**, including model explainability, fairness monitoring, and compliance considerations.
+  - **Tags (4 items):** `Data Analytics`, `Predictive Modeling`, `Agentic AI`, `Responsible AI`.
+  - **Certificate CTA Button:**
+    - Rendered minimal tactile neumorphic button (`bg-[#FAF5EE] text-brownie border border-caramel/30`) with subtle teal/cyan hover glow (`hover:shadow-[0_4px_14px_rgba(20,184,166,0.22)]`, `hover:border-teal-500/60`, `hover:text-teal-700`).
+    - Integrated small external link SVG icon with hover translation.
+    - Configured with `target="_blank" rel="noopener noreferrer"` opening `/certificates/tata-iq-genai-data-analytics.pdf` in a new tab.
+  - **Harmonized Card Structure:** Preserved the established `p-6 sm:p-8 rounded-2xl bg-white/70 border border-caramel/25 shadow-xs` card shell, responsive mobile wrapping without horizontal overflow, and markdown `**bold**` text parsing in `renderFormattedContent`.
+- **Zero-Regression Production Verification:** `npm run build` succeeds across all 8 routes with 0 errors.
 
 ## 2026-09-08 — Complete README.md Documentation Creation
 
